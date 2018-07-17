@@ -11,7 +11,6 @@ Expected Result:
 2.	Наличие аватара пользователя
 3.	Наличие логина пользователя «Student»
 
-
 Test Case ID: 2
 Test Case Name:  Авторизация (не валидная)
 Objective: Не успешная  Авторизация  пользователя
@@ -56,9 +55,6 @@ Test Steps:
  Expected Result:
 1.	Открылась страница «Сотрудники Список»  http://v3.test.itpmgroup.com/dictionary/workers
 2.	Данные  (Сотрудник «Вася Пупкин слесарь»  и Телефон «102»)  успешно добавлены в список
-
-
-
 
 Test Case ID: 5
 Test Case Name:  Добавление в Словарь (Типы запчастей)
