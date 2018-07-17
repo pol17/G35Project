@@ -1,0 +1,72 @@
+1. Login form
+Test data:
+login = Student
+Password = 909090
+Preconditions: login form is shown on the login page
+Steps:
+1) Open a web-site by URL: http://v3.test.itpmgroup.com/login - page is opened and login form is shown
+2) Enter "Student" to the Email field; - email data can be added to the Email form and visible after entering
+3) Enter "909090" to the Password field; - Password data can be added to the Password field and is hidden (dots instead of password word)
+4) Click on "Вход" button
+Expected result:
+- main page is displayed by URL: http://v3.test.itpmgroup.com/
+- database is updated - last login date is changed according to the date of test
+- header navigation bar is displayed on the top of the page from the left side
+- menu panel is displayed on the left side of the page under the header navigation
+
+2. Registration new user
+Test data:
+login = teststudent
+Password = 123456
+Precondition: link to the registration page is present on the Login form
+Steps:
+1) Open a web-site by URL: http://v3.test.itpmgroup.com/login - page is opened and login form is shown
+2) Click on the "Зарегистрироваться" button
+Expected result:
+- Registration page is opened, URL: http://v3.test.itpmgroup.com/register.html
+- "404 Страница не найдена" text is displayed
+- by clicking on "на главную страницу" link User is redirected to the login page with URL: http://v3.test.itpmgroup.com/login
+
+3. Remind a password
+Preconditions: remind button is shown on the login form
+Steps:
+1) Open a web-site by URL: http://v3.test.itpmgroup.com/login - page is opened and login form is shown
+2) Click on the "Напомнить пароль" button
+Expected result:
+- User stays on the same login page with URL: http://v3.test.itpmgroup.com/login
+
+4. Add new entry to the worker vocabulary:
+Test data:
+Worker surname = K
+Worker name = Maryna
+Worker middle name = KK
+Worker phone = 123 45 67
+Steps:
+1) click on the "Словари" menu item
+2) choose "Сотрудники" option - page with the list of names and phone numbers is opened
+3) click on the add button on the opened page - form for adding entry is opened
+4) fill in all fields: add Worker surname, Worker name, Worker middle name, Worker phone according to the Test data
+5) Click on "Создать" button
+Expected result:
+page with "Сотрудники" list is opened and new entry is added to the "Сотрудники" vocabulary with the following parameters:
+Worker surname = K
+Worker name = Maryna
+Worker middle name = KK
+Worker phone = 123 45 67
+
+5) Add new entry to the "Установка" vocabulary
+Test Data:
+Installation date = 01.05.2018 14:00
+Аппарат = redphone
+Сотрудник = Maryna K KK
+Steps:
+1) click on the "Установка" menu item - the list with Date and time, Device and Worker data is shown
+2) click on the Add button on the page - a form for adding new entry is displayed
+3) fill in all fields: Installation date, Аппарат, Сотрудник according to the test data
+4) click on the "Создать" button
+Expected result:
+page with "Установка" vocabulary is opened and added entry is displayed in the bottom of the list with the following parameters:
+Installation date = 01.05.2018 14:00
+Аппарат = redphone
+Сотрудник = Maryna K KK
+
