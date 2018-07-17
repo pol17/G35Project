@@ -20,7 +20,7 @@
     -- открыта страницаhttp://v3.test.itpmgroup.com/dictionary/workers
         - кликнуть кнопку "Add"
         - в поле "Worker surname" ввести "тест"
-        - в поле "Worker name" ввести "тест"
+        - в поле "Worker name" ввести "тест".
         - в поле "Worker middle name" ввести "тест"
         - в поле "Worker phone" ввести "1234567890"
         - кликнуть кнопку "Создать"
