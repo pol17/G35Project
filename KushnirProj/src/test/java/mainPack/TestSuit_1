@@ -1,0 +1,87 @@
+TestID: 1
+Summary: Button [Вход] verification
+Steps
+1.	Open browser (ex. Chrome)
+2.	Go to link http://v3.test.itpmgroup.com/login
+3.	Click on button [Вход]
+4.	Observe screen
+Expected result:
+Login window should be still displayed, url doesn't changed
+
+TestID: 2
+Summary: Login with valid credential
+Pre-condition:
+Registered user is present in the system
+Login:Student
+Pass:909090
+Steps
+1.	Open browser (ex. Chrome)
+2.	Go to link http://v3.test.itpmgroup.com/login
+3.	Input valid credential in fields Email and Password
+4.	Observe result
+Expected result:
+User private page is displayed, url changed
+
+TestID: 3
+Summary: Logout verification
+Pre-condition:
+Registered user is present in the system
+Login:Student
+Pass:909090
+Steps
+1.	Open browser (ex. Chrome)
+2.	Go to link http://v3.test.itpmgroup.com/login
+3.	Input valid credential in fields Email and Password
+4.	Click on Student in right upper side of screen
+5.	Click button [Выход]
+Expected result:
+Login page is displayed
+
+TestID: 4
+Summary: Verify the list of items in the left upper part of screen
+Pre-condition:
+Registered user is present in the system
+Login:Student
+Pass:909090
+Steps
+1.	Open browser (ex. Chrome)
+2.	Go to link http://v3.test.itpmgroup.com/login
+3.	Input valid credential in fields Email and Password
+4.	Click on Student in right upper side of screen
+5.	Click button [Выход]
+6.      Observe list of items in the left upper part of screen
+Expected result:
+There should be next items:
+	[Главная]
+	[Словари]
+	[Обслуживание]
+	[Установка]
+	[Сделки]
+	[Отчет]
+
+
+TestID: 5
+Summary: Verify the group of radio buttons of item [Словари]
+Pre-condition:
+Registered user is present in the system
+Login:Student
+Pass:909090
+Steps
+1.	Open browser (ex. Chrome)
+2.	Go to link http://v3.test.itpmgroup.com/login
+3.	Input valid credential in fields Email and Password
+4.	Click on Student in right upper side of screen
+5.	Click button [Выход]
+6.	Click button [Словари]
+6.      Observe the group of radio buttons
+Expected result:
+Each group og radio buttons should have different url
+There should be next items:
+	[Аппарат]
+	[Сотрудники]
+	[Типы запчастей]
+	[Запчасти]
+	[Стороны сделок]
+	[Типы сделок]
+
+
