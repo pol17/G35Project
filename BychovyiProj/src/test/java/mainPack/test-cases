@@ -68,3 +68,14 @@ Expected Result:
     Тип = "pokupka1",
     Покупатель = "Вася",
     Поставщик = "ЧП "Ремонт автоматов""
+
+Test Case ID: 5
+Test Case Name: Log Out
+Objective: Выход пользователя из системы
+Pre-conditions: Пользватель авторизован, открыта станица http://v3.test.itpmgroup.com
+Test Steps:
+1. В правом верхнем углу кликнуть по имени пользователя "Student" (dropdown user user-menu)
+2. Клик на кнопке "Выход"
+Expected Result:
+1. Переход на страницу http://v3.test.itpmgroup.com/login
+2. Видна форма "Авторизация", доступны поля для ввода логина и пароля
