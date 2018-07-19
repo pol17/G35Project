@@ -1,0 +1,81 @@
+Test Case ID: 1
+Test Case Name: Success login test
+Objective: Тестирование успешного логина
+Pre-conditions: Открыта станица http://v3.test.itpmgroup.com/login, видна форма "Авторизация", доступны поля для ввода логина и пароля и кнопка "Вход"
+Test Steps:
+1. В поле Email ввести значение Student
+2. В поле Password ввести значение 909090
+3. Нажать на кнопку "Вход"
+Expected Result:
+1. Открылась страница http://v3.test.itpmgroup.com/
+2. На странице видно наименование "Главная" и приветствие "Добро пожаловать в систему учета запчастей!"
+3. В правом верхнем углу видно имя пользователя "Student"
+4. В левом верхнем углу видно название "Учет запчастей"
+5. Открыта левая навигационная панель на ней сверху имя пользователя "Student" и статус "online"
+
+Test Case ID: 2
+Test Case Name: Sign Up
+Objective: Регистрация пользователя
+Pre-conditions: Открыта станица http://v3.test.itpmgroup.com/login, видна форма "Авторизация", доступны поля для ввода логина и пароля и кнопка "Вход"
+Test Steps:
+1. Кликнуть на ссылке "Зарегистрироваться"
+Expected Result:
+1. Открылась страница http://v3.test.itpmgroup.com/register.html
+2. На странице текст "404 Страница не найдена Запрашиваемая страница не была найдена. Вернитесь на главную страницу"
+3. В консоли сообщение GET http://v3.test.itpmgroup.com/register.html 404 (Not Found)
+
+Test Case ID: 3
+Test Case Name: Add side deals to dictionary
+Objective: В словарь добавить сторону сделок
+Pre-conditions: Пользватель авторизован, открыта станица http://v3.test.itpmgroup.com
+Test Steps:
+1. В левом меню выбрать раздел "Словари"
+2. В разделе "Словари" выбрать "Стороны сделок"
+3. Кликнуть на кнопке "Add"
+4. В поле "Pro cust name" ввести "Лето 2018"
+5. В поле "Pro cust address" ввести "Лето 2017"
+6. В поле "Pro cust phone" ввести "Лето 2019"
+7. Включить чек-бокс "Private person"
+8. Кликнуть на кнопке "Создать"
+Expected Result:
+1. Переход на страницу http://v3.test.itpmgroup.com/dictionary/providers
+2. В списке контрагентов есть запись
+    Наименование = "Лето 2018",
+    Адрес = "Лето 2017",
+    Телефон = "Лето 2019",
+    Физ.лицо = "1"
+
+Test Case ID: 4
+Test Case Name: Add a Deal to List
+Objective: В список сделок добавить новую сделку
+Pre-conditions: Пользватель авторизован, открыта станица http://v3.test.itpmgroup.com
+Test Steps:
+1. В левом меню выбрать раздел "Сделки"
+2. В секции "Список сделок" кликнуть на кнопке "Add"
+3. В выпадающем списке "deal_dealDate_date_day" выбрать "16"
+4. В выпадающем списке "deal_dealDate_date_month" выбрать "июля"
+5. В выпадающем списке "deal_dealDate_date_year" выбрать "2018"
+6. В выпадающем списке "deal_dealDate_time_hour" выбрать "17"
+7. В выпадающем списке "deal_dealDate_time_minute" выбрать "22"
+8. В выпадающем списке Тип сделки "deal_dealType" выбрать "pokupka1"
+9. В выпадающем списке Покупатель "deal_customer" выбрать "Вася"
+10. В выпадающем списке Поставщик "deal_provider" выбрать "ЧП "Ремонт автоматов""
+11. Кликнуть на кнопке "Создать"
+Expected Result:
+1. Переход на страницу http://v3.test.itpmgroup.com/deal
+2. В списке сделок есть запись
+    Дата = "16.07.2018 17:22",
+    Тип = "pokupka1",
+    Покупатель = "Вася",
+    Поставщик = "ЧП "Ремонт автоматов""
+
+Test Case ID: 5
+Test Case Name: Log Out
+Objective: Выход пользователя из системы
+Pre-conditions: Пользватель авторизован, открыта станица http://v3.test.itpmgroup.com
+Test Steps:
+1. В правом верхнем углу кликнуть по имени пользователя "Student" (dropdown user user-menu)
+2. Клик на кнопке "Выход"
+Expected Result:
+1. Переход на страницу http://v3.test.itpmgroup.com/login
+2. Видна форма "Авторизация", доступны поля для ввода логина и пароля
