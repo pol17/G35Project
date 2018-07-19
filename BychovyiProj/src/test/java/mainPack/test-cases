@@ -23,3 +23,24 @@ Expected Result:
 1. Открылась страница http://v3.test.itpmgroup.com/register.html
 2. На странице текст "404 Страница не найдена Запрашиваемая страница не была найдена. Вернитесь на главную страницу"
 3. В консоли сообщение GET http://v3.test.itpmgroup.com/register.html 404 (Not Found)
+
+Test Case ID: 3
+Test Case Name: Add side deals to dictionary
+Objective: В словарь добавить сторону сделок
+Pre-conditions: Пользватель авторизован, открыта станица http://v3.test.itpmgroup.com
+Test Steps:
+1. В левом меню выбрать раздел "Словари"
+2. В разделе "Словари" выбрать "Стороны сделок"
+3. Кликнуть на кнопке "Add"
+4. В поле "Pro cust name" ввести "Лето 2018"
+5. В поле "Pro cust address" ввести "Лето 2017"
+6. В поле "Pro cust phone" ввести "Лето 2019"
+7. Включить чек-бокс "Private person"
+8. Кликнуть на кнопке "Создать"
+Expected Result:
+1. Переход на страницу http://v3.test.itpmgroup.com/dictionary/providers
+2. В списке контрагентов есть запись
+    Наименование = "Лето 2018",
+    Адрес = "Лето 2017",
+    Телефон = "Лето 2019",
+    Физ.лицо = "1"
