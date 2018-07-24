@@ -28,6 +28,7 @@ public class LoginTestWitoutPageObject {
     public void validLogin(){
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(2000, TimeUnit.MINUTES);
+        webDriver.get("http://v3.test.itpmgroup.com");
 
 
         webDriver.findElement(By.name("_username")).clear();
