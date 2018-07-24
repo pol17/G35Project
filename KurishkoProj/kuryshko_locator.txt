@@ -1,0 +1,42 @@
+#Navbar:
+Navbar.Side_bar_menu.button=xpath(".//*[@id='toggle-nav']")
+Navbar.Go_to_main.link=xpath(".//*[@id='jv__navbar-logo-link']")
+Navbar.Search.button=xpath(".//button[@class='button button-icon toggle-search-input']")
+Navbar.Main-menu.Channels=xpath(".//*[@id='jv__navbar-channels-link']")
+Navbar.Main-menu.TV_Archive=xpath(".//*[@id='jv__navbar-archive-link']")
+Navbar.Main-menu.Cinema=xpath(".//*[@id='jv__navbar-movies-link']")
+Navbar.Main-menu.Radio=xpath(".//*[@id='jv__navbar-radio-link']")
+
+#Sign in
+Sign_In.Block=xpath(".//*[@id='modal-container']")
+Sign_in.EmailLogin.input=xpath(".//*[@id='emailLogin']")
+Sign_in.Password.input=xpath(".//*[@id="passLogin"]")
+Sign_in.DoLogin.button=xpath(".//button[@class='btn btn-primary withripple btn-login doLogin']")
+
+#Banners carousel
+Banner-carousel.Banner=xpath(".//*[@id='banner-id-3701']") //id-3701-измен€ющийс€ элемент дл€ каждого баннера
+
+#Sidebar-menu
+Sidebar-menu.Close.button=xpath(".//*[@id='jv__sidebar-close-link']")
+Sidebar-menu.Go_to_main.link=xpath(".//*[@class="close-drawer"]")
+Sidebar-menu.Sign_In=xpath(".//*[@id='jv__sidebar-login-link']")
+Sidebar-menu.Channels=xpath(".//*[@id='jv__sidebar-channels-link']")
+Sidebar-menu.TV_Archive=xpath(".//*[@id='jv__sidebar-archive-link']")
+Sidebar-menu.Cinema=xpath(".//*[@id='jv__sidebar-movies-link']")
+Sidebar-menu.Radio=xpath(".//*[@id='jv__sidebar-radio-link']")
+Sidebar-menu.Cabinet=xpath(".//*[@id='jv__sidebar-profile-link']")
+Sidebar-menu.Subscriptions=xpath(".//*[@id='jv__sidebar-plans-link']")
+Sidebar-menu.Promocode=xpath(".//*[@id='jv__sidebar-promocode-link']")
+Sidebar-menu.Balance=xpath(".//*[@id='jv__sidebar-replenish-link']")
+Sidebar-menu.Balance=xpath(".//*[@id='jv__sidebar-faq-link']")
+Sidebar-menu.Faq=xpath(".//*[@id='jv__sidebar-faq-link']")
+Sidebar-menu.DropList.Language=xpath(".//*[@id='jv__sidebar-toggle-lang']")
+Sidebar-menu.DropList.Language.Ua=xpath(".//*[@id='jv__sidebar-ua-lang']")
+Sidebar-menu.DropList.Language.En=xpath(".//*[@id='jv__sidebar-en-lang']")
+Sidebar-menu.DropList.Language.Ru=xpath(".//*[@id='jv__sidebar-ru-lang']")
+
+Video\TV Archive content page:
+#Buttons:
+Watch.button=xpath(".//button[@class='btn btn-raised btn-primary']")
+Buy.button=xpath(".//button[@class='btn btn-raised btn-warning']")
+Watch_later.button=xpath(".//button[@class='btn btn-bookmark withripple']")
