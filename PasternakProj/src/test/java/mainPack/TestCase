@@ -2,12 +2,12 @@
         Precondition:
             - открыта страница http://v3.test.itpmgroup.com/login
         STR:
-            1. в поле "логин" ввести: Student
-            2. в поле "пароль" ввести: 909090
-            3. кликнуть "Вход"
+            1. в поле "логин" ввести: Student       .//input[@name='_username']
+            2. в поле "пароль" ввести: 909090       .//input[@name='_password']
+            3. кликнуть "Вход"                      .//button[@type='submit']
         ER:
             - редирект на страницу http://v3.test.itpmgroup.com/
-            - в хедере логин и аватарка
+            - в хедере логин и аватарка             .//*[@alt='Student'and @class='user-image']
 
 2. Логин с невалидными данными
        Precondition:
