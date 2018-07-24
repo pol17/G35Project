@@ -11,6 +11,11 @@ Expected Results: User should Login into http://v3.test.itpmgroup.com/
 Actual Results: As Expected
 Pass/Fail: Pass
 
+.//input[@placeholder="Email"]
+.//input[@placeholder="Password"]
+.//button[contains(text(),'Вход')]
+.//h1[contains(text(),'Главная')]
+
 ======================================================================
 Test Case ID 2
 Test Goal: Check the button "Зарегистрироваться"
@@ -22,6 +27,8 @@ Test Steps:
 Expected Results: User should go into http://v3.test.itpmgroup.com/register.html
 Actual Results: As Expected
 Pass/Fail: Pass
+
+.//a[contains(text(),'Зарегистрироваться')]
 
 ======================================================================
 Test Case ID 3
@@ -38,6 +45,8 @@ Expected Results: User should go into http://v3.test.itpmgroup.com/users/profile
 Actual Results: As Expected
 Pass/Fail: Pass
 
+.//a[contains(text(),'Профиль')]
+
 ======================================================================
 Test Case ID 4
 Test Goal: Check dropdown after clicking the button "Словари"
@@ -52,6 +61,9 @@ Expected Results: Should open dropdown under the "Словари" button
 Actual Results: As Expected
 Pass/Fail: Pass
 
+.//ul//a//span[contains(text(),'Словари')]
+??? (как проверить, что открылся дроп-даун)
+
 ======================================================================
 Test Case ID 5
 Test Goal: Hiding the left menu by clicking the button "Sandwich menu"
@@ -65,4 +77,7 @@ Test Steps:
 Expected Results: Left menu should disappear
 Actual Results: As Expected
 Pass/Fail: Pass
+
+.//a[@class='sidebar-toggle']
+??? (как провекрить, что скрылось меню?)
 
