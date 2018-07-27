@@ -5,14 +5,14 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public class ParentPage {
-    private final WebDriver wedDriver;
+
     Logger logger = Logger.getLogger(getClass());
     WebDriver webDriver;
     String expectedUrl;
     final String baseUrl = "http://v3.test.itpmgroup.com";
 
     public ParentPage(WebDriver webDriver, String expectedUrl) {
-        this.wedDriver = webDriver;
+        this.webDriver = webDriver;
         this.expectedUrl = baseUrl + expectedUrl;
     }
 
