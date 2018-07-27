@@ -19,7 +19,6 @@ public class LoginTestWhithoutPageObject {
         webDriver = new ChromeDriver();
     }
 
-
     @Test
     public void validLogin(){
         webDriver.manage().window().maximize();
