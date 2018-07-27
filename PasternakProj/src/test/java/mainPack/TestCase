@@ -2,12 +2,12 @@
         Precondition:
             - открыта страница http://v3.test.itpmgroup.com/login
         STR:
-            1. в поле "логин" ввести: Student       .//input[@name='_username']
-            2. в поле "пароль" ввести: 909090       .//input[@name='_password']
-            3. кликнуть "Вход"                      .//button[@type='submit']
+            1. в поле "логин" ввести: Student
+            2. в поле "пароль" ввести: 909090
+            3. кликнуть "Вход"
         ER:
             - редирект на страницу http://v3.test.itpmgroup.com/
-            - в хедере логин и аватарка             .//*[@alt='Student'and @class='user-image']
+            - в хедере логин и аватарка
 
 2. Логин с невалидными данными
        Precondition:
@@ -24,10 +24,11 @@
 3. Добавление нового поля в Словарь-Сотрудники
        Precondition:
             - пользователь залогинен под логином Student
-            - открыта страницаhttp://v3.test.itpmgroup.com/dictionary/workers
+            - открыта страница http://v3.test.itpmgroup.com/dictionary/workers
        STR:
             1. кликнуть кнопку "Add"
             2. в поле "Worker surname" ввести "тест"
+       ER: Открыта страница http://v3.test.itpmgroup.com/dictionary/workers/edit
             3. в поле "Worker name" ввести "тест".
             4. в поле "Worker middle name" ввести "тест"
             5. в поле "Worker phone" ввести "1234567890"
