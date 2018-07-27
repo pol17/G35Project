@@ -15,7 +15,7 @@ public class LoginTestWithOutPageObject {
 
     WebDriver webDriver;
 
-    @Before
+    @Before  //анатация. метод/данные , junit
     public void setUp() {
         File file = new File("./src/drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
@@ -25,7 +25,7 @@ public class LoginTestWithOutPageObject {
     @Test
     public void validLogIn() {
         webDriver.manage().window().maximize();  // драйвер сделай окошко максимальтым
-        webDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);  //implicitlyWait - неявное ожидание  / 15 - секунд
+        webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);  //implicitlyWait - неявное ожидание  / 30 - секунд
         webDriver.get("http://v3.test.itpmgroup.com");  //открой нам этот...
 
         webDriver.findElement(By.name("_username")).clear();
@@ -39,7 +39,7 @@ public class LoginTestWithOutPageObject {
         Assert.assertTrue("Avatar is not present", isAvatarPresent());  //если всё ок - просто проходит дальше, если проло - то мессадж
     }
 
-    @After
+    @After  //выполняется в любом случаи, не зависит от +/- результата.
     public void tearDown() {
         webDriver.quit(); //закрывает полность брайзер, close - закрівает только вкладку
     }
