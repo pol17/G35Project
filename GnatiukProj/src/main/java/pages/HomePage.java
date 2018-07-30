@@ -17,4 +17,14 @@ public class HomePage extends ParentPage {
             return false;
         }
     }
+
+    public boolean isSubmitButtonPresent() {
+        try {
+            return webDriver.findElement(
+                    By.tagName("button"))
+                    .isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
