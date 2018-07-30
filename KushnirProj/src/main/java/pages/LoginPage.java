@@ -24,6 +24,19 @@ public class LoginPage extends ParentPage {
         }
     }
 
+    public boolean isLoginPageDisplayed (){
+        try {
+            webDriver.get(baseUrl + "/login");
+            checkCurrentUrl();
+        } catch (Exception e) {
+            return false;
+            //logger.error("Can't open LoginPage");
+            //Assert.fail("Can't open LoginPage");
+
+        }
+        return true;
+    }
+
     public void enterLogin (String login) {
         try {
             WebElement webElement = webDriver.findElement(By.name("_username"));
@@ -63,6 +76,16 @@ public class LoginPage extends ParentPage {
             Assert.fail("Can't work with Element");
 
         }
+    }
+
+    public boolean isButtonPresent (){
+        try {
+            webDriver.findElement(By.tagName("button")).isDisplayed();
+
+        }catch (Exception e){
+            return false;
+        }
+        return true;
     }
 
 
