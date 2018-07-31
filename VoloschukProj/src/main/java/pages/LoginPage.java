@@ -60,4 +60,13 @@ public class LoginPage extends ParentPage {
             Assert.fail("Cannot work with element");
         }
     }
+
+    public boolean isButtonLoginPresent () {
+        try {
+            return webDriver.findElement(By.xpath(".//button[@type='submit']"))
+                    .isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
