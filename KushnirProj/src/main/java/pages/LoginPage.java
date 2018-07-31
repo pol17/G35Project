@@ -28,13 +28,12 @@ public class LoginPage extends ParentPage {
         try {
             webDriver.get(baseUrl + "/login");
             checkCurrentUrl();
+            return true;
         } catch (Exception e) {
             return false;
-            //logger.error("Can't open LoginPage");
-            //Assert.fail("Can't open LoginPage");
 
         }
-        return true;
+
     }
 
     public void enterLogin (String login) {
@@ -80,12 +79,12 @@ public class LoginPage extends ParentPage {
 
     public boolean isButtonPresent (){
         try {
-            webDriver.findElement(By.tagName("button")).isDisplayed();
+           return webDriver.findElement(By.tagName("button")).isDisplayed();
 
         }catch (Exception e){
             return false;
         }
-        return true;
+
     }
 
 
