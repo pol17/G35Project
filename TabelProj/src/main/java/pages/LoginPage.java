@@ -60,4 +60,13 @@ public class LoginPage extends ParentPage {
             Assert.fail("Can not work with  button Submit ");
         }
     }
+    public boolean isLoginBoxMsg() {
+        try {
+            return webDriver.findElement(
+                    By.xpath(".//p[@class='login-box-msg']"))
+                    .isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
