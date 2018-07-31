@@ -1,14 +1,26 @@
 package pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends ParentPage {
 
+    HomePage homePage;
+
+    @FindBy(name = "_username")
+    WebElement userNameInput;
+
+    @FindBy(id = "password")
+    WebElement passwordInput;
+
+    @FindBy(tagName = "button")
+    WebElement submitButton;
+
     public LoginPage(WebDriver webDriver) {
         super(webDriver, "/login");
+        homePage = new HomePage(webDriver);
     }
 
     public void openPage(){
@@ -23,38 +35,28 @@ public class LoginPage extends ParentPage {
     }
 
     public void enterLogin(String login){
-        try{
-            WebElement webElement = webDriver.findElement(By.name("_username"));
-            webElement.clear();
-            webElement.sendKeys(login);
-            logger.info(login + " was input into input Login ");
-
-        } catch (Exception e){
-            logger.error("Can not work with element");
-            Assert.fail("Can not work with element");
-        }
+        actionWithOurElements.enterTextToElement(userNameInput,login);
     }
+
     public void enterPass(String pass){
-        try{
-            WebElement webElement = webDriver.findElement(By.id("password"));
-            webElement.clear();
-            webElement.sendKeys(pass);
-            logger.info(pass + " was input into input Pass ");
-
-        } catch (Exception e){
-            logger.error("Can not work with element");
-            Assert.fail("Can not work with element");
-        }
+        actionWithOurElements.enterTextToElement(passwordInput,pass);
     }
+
     public void clickOnSubmitButton(){
-        try{
-            WebElement webElement = webDriver.findElement(By.tagName("button"));
-            webElement.click();
-            logger.info("Button submit was clicked");
-        }catch (Exception e){
-            logger.error("Can not work with element");
-            Assert.fail("Can not work with element");
-        }
+        actionWithOurElements.clickOnElement(submitButton);
     }
 
+    /**
+     * Method for valid Login
+     * @param login (only valid login)
+     * @param password (only valid password)
+     */
+    public void userValidLogIn(String login, String password) {
+        openPage();
+        enterLogin(login);
+        enterPass(password);
+        clickOnSubmitButton();
+        homePage.checkCurrentUrl();
+        homePage.isAvatarPresent();
+    }
 }
