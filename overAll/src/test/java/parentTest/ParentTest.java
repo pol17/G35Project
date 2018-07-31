@@ -21,7 +21,7 @@ public class ParentTest {
 
     @Before
     public void setUp() {
-        File file = new File("./src/drivers/chromedriver");
+        File file = new File("./src/drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
