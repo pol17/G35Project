@@ -1,19 +1,24 @@
 package pages;
 
+import libs.ActionsWithOurElements;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public class ParentPage {
     Logger logger = Logger.getLogger(getClass());
     WebDriver webDriver;
     String expectedUrl;
     final String baseUrl = "http://v3.test.itpmgroup.com";
+    ActionsWithOurElements actionsWithOurElements;
 
 
     public ParentPage(WebDriver webdriver, String expectedUrl) {
         this.webDriver = webdriver;
         this.expectedUrl = baseUrl + expectedUrl;
+        PageFactory.initElements(webDriver,this); //initialize of all elements in findby
+        actionsWithOurElements = new ActionsWithOurElements(webDriver);
     }
 
     //return actual url of opened page
