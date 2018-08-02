@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.ParentPage;
+import pages.SparesPage;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -19,7 +20,7 @@ public class Parenttest {
 protected LoginPage loginPage;
 protected HomePage homePage;
 protected ParentPage parentPage;
-
+protected SparesPage sparesPage;
 
     @Before
     public void setUp() {
@@ -30,6 +31,7 @@ protected ParentPage parentPage;
         webDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
+        sparesPage= new SparesPage(webDriver);
     }
         @After
         public void tearDown() {
