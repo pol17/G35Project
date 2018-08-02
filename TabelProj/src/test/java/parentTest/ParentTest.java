@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.SparesPage;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -21,8 +22,7 @@ public class ParentTest {
     Logger logger = Logger.getLogger(getClass());
     protected LoginPage loginPage;
     protected HomePage homePage;
-
-
+    protected SparesPage sparesPage;
 
     @Before  //анатация. метод/данные , junit
     public void setUp() {
@@ -33,12 +33,13 @@ public class ParentTest {
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);  //implicitlyWait - неявное ожидание  / 30 - секунд
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
+        sparesPage = new SparesPage(webDriver); // добавили страницу которую можем использовать в тестах
 
     }
 
     @After  //выполняется в любом случаи, не зависит от +/- результата.
     public void tearDown() {
-        webDriver.quit(); //закрывает полность брайзер, close - закрівает только вкладку
+        webDriver.quit(); //закрывает полность брайзер, close - закрывает только вкладку
 
     }
 
