@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.EditSparePage;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.SparesPage;
@@ -22,7 +23,8 @@ public class ParentTest {
     Logger logger = Logger.getLogger(getClass());
     protected LoginPage loginPage;
     protected HomePage homePage;
-    protected SparesPage sparesPage;
+    protected SparesPage sparesPage;  //объявили
+    protected EditSparePage editSparePage;
 
     @Before  //анатация. метод/данные , junit
     public void setUp() {
@@ -31,9 +33,10 @@ public class ParentTest {
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();  // драйвер сделай окошко максимальтым
         webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);  //implicitlyWait - неявное ожидание  / 30 - секунд
-        loginPage = new LoginPage(webDriver);
+        loginPage = new LoginPage(webDriver);   // Инициализация
         homePage = new HomePage(webDriver);
         sparesPage = new SparesPage(webDriver); // добавили страницу которую можем использовать в тестах
+        editSparePage = new EditSparePage(webDriver);
 
     }
 
