@@ -4,7 +4,7 @@ package loginTests;
 import org.junit.Test;
 import parentTest.ParentTest;
 
-public class LoginPage  extends ParentTest{
+public class LoginTests extends ParentTest{
     @Test
     public void validLogin(){
         loginPage.openPage();
