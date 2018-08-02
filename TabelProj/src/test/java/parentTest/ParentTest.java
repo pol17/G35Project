@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  * Общее для всех Тестов
  */
 public class ParentTest {
-    WebDriver webDriver;
+    protected WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
     protected LoginPage loginPage;
     protected HomePage homePage;
