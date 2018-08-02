@@ -10,7 +10,6 @@ public class LoginTest extends ParentTest {
         loginPage.enterLogin("Student");
         loginPage.enterPass("909090");
         loginPage.clickOnSubmitButton();
-
         checkAC("Avatar is not present", homePage.isAvatarPresent(),true);
     }
 
@@ -20,7 +19,7 @@ public class LoginTest extends ParentTest {
         loginPage.enterLogin("Student");
         loginPage.enterPass("9090");
         loginPage.clickOnSubmitButton();
-
+        loginPage.checkCurrentUrl();
         checkAC("Avatar is present, but not expected", homePage.isAvatarPresent(), false);
         checkAC("Login button is not present", loginPage.isButtonLoginPresent(),true);
 
