@@ -2,8 +2,12 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class ActionWithOurElements {
     WebDriver webDriver;
@@ -49,4 +53,35 @@ public class ActionWithOurElements {
     }
 
 
+    public boolean isElementInList(String xpathLocator) {
+        try {
+            List<WebElement> webElementList = webDriver.findElements(By.xpath(xpathLocator));
+            if (webElementList.size() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void clickOnElement(String xpathLocator) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(xpathLocator));
+            clickOnElement(webElement);
+        }catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    public void selectValueInDD(WebElement dropDownElement, String value) {
+        try {
+            Select select = new Select(dropDownElement);
+            select.selectByValue(value);
+            logger.info(value + " was selected in DD");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
 }
