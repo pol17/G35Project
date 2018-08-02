@@ -20,7 +20,7 @@ public class ParentTest {
 
 
     @Before
-    public void setUp(){
+    public void setUp() {
         File file = new File("./src/drivers/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         webDriver = new ChromeDriver();
@@ -28,19 +28,16 @@ public class ParentTest {
         webDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
-
     }
     @After
-    public void tearDown () {
+    public void tearDown() {
         webDriver.quit();
     }
 
-    protected void checkAC (String message, boolean actual, boolean expected){
-        if (actual != expected) {
-            logger.error("AC faild: " + message);
+    protected void checkAC(String message, boolean actual, boolean expected){
+        if (actual != expected){
+            logger.error("AC failed: " + message);
         }
         Assert.assertEquals(message, expected, actual);
     }
-
-
 }

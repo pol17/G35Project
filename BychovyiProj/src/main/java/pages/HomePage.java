@@ -3,18 +3,19 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomePage extends ParentPage {
+public class HomePage extends ParentPage{
     public HomePage(WebDriver webDriver) {
         super(webDriver, "/");
     }
 
-    public boolean isAvatarPresent () {
+    public boolean isAvatarPresent(){
         try {
-            return webDriver.findElement(By.xpath(".//*[@class='pull-left image']//img[@class='img-circle']"))
+            return webDriver.findElement(
+                    By.xpath(".//*[@class='pull-left image']//img[@class='img-circle']"))
                     .isDisplayed();
-
-        } catch (Exception e) {
-            return  false;
+        } catch (Exception e){
+            return false;
         }
     }
+
 }

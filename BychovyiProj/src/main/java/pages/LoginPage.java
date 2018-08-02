@@ -11,54 +11,50 @@ public class LoginPage extends ParentPage {
         super(webDriver, "/login");
     }
 
-    public void openPage() {
-        try {
+    public void openPage(){
+        try{
             webDriver.get(baseUrl + "/login");
             checkCurrentUrl();
             logger.info("Login Page was opened");
-        } catch (Exception e) {
+        } catch (Exception e){
             logger.error("Can not open LoginPage");
             Assert.fail("Can not open LoginPage");
         }
     }
 
-    public void enterLogin(String login) {
-        try {
+    public void enterLogin(String login){
+        try{
             WebElement webElement = webDriver.findElement(By.name("_username"));
             webElement.clear();
             webElement.sendKeys(login);
-            logger.info(login + " was input inti input Login ");
+            logger.info(login + " was input into input Login ");
 
-        } catch (Exception e) {
+        } catch (Exception e){
             logger.error("Can not work with element");
             Assert.fail("Can not work with element");
         }
     }
-
-    public void enterPass(String pass) {
-        try {
+    public void enterPass(String pass){
+        try{
             WebElement webElement = webDriver.findElement(By.id("password"));
             webElement.clear();
             webElement.sendKeys(pass);
-            logger.info(pass + " was input inti input Password ");
+            logger.info(pass + " was input into input Pass ");
 
-        } catch (Exception e) {
+        } catch (Exception e){
             logger.error("Can not work with element");
             Assert.fail("Can not work with element");
         }
     }
-
-    public void clickOnSubmitButton() {
-        try {
+    public void clickOnSubmitButton(){
+        try{
             WebElement webElement = webDriver.findElement(By.tagName("button"));
             webElement.click();
             logger.info("Button submit was clicked");
-
-        } catch (Exception e) {
+        }catch (Exception e){
             logger.error("Can not work with element");
             Assert.fail("Can not work with element");
         }
     }
-
 
 }
