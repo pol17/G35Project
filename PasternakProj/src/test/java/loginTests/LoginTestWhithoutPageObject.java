@@ -14,7 +14,7 @@ public class LoginTestWhithoutPageObject {
     WebDriver webDriver;
     @Before
     public void setUp(){
-        File file = new File("/home/uniuser/chromedriver_linux64/chromedriver");
+        File file = new File("/home/tanya/chromedriver_linux64/chromedriver");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         webDriver = new ChromeDriver();
     }
