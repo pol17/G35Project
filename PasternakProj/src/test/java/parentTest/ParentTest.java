@@ -13,7 +13,7 @@ import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class ParentTest {
-    WebDriver webDriver;
+    protected WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
     protected LoginPage loginPage;
     protected HomePage homePage;
@@ -23,7 +23,7 @@ public class ParentTest {
         File file = new File("/home/tanya/chromedriver_linux64/chromedriver");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         webDriver = new ChromeDriver();
-//        webDriver.manage().window().maximize();
+        webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
