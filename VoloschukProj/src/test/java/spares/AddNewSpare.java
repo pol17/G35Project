@@ -17,6 +17,12 @@ public class AddNewSpare  extends ParentTest {
         }
         homePage.clickOnSubMenuSpares();
         sparesPage.checkCurrentUrl();
+        sparesPage.deletingAllSparesWithName(nameOfSpare);
+        sparesPage.clickOnButtonPlus();
+        editSparePage.checkCurrentUrl();
+        editSparePage.enterSpareName(nameOfSpare);
+        editSparePage.selectSpareType("4");
+        editSparePage.clickButtonCreate();
     }
 
 }
