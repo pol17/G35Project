@@ -1,22 +1,42 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends ParentPage{
+
+    @FindBy(xpath = ".//*[@class='pull-left image']//img[@class='img-circle']")
+    private WebElement avatar;
+
+    @FindBy(xpath = ".//*[@id='dictionary']/a")
+    private WebElement menuDictionary;
+
+    @FindBy(id = "spares")
+    private WebElement subMenuSpares;
+
     public HomePage(WebDriver webDriver) {
         super(webDriver, "/");
     }
-    /**
+        /**
      * Научить проверять наличие Аватар
      */
     public boolean isAvatarPresent() {
-        try {
-            return webDriver.findElement(
-                    By.xpath(".//*[@class='pull-left image']//img[@class='img-circle']"))
-                    .isDisplayed();   //есть ли аватар (показан)
-        } catch (Exception e) {
-            return false;
-        }
+        return  actionWithOurElement.isElementDisplay(avatar);
+//        try {
+//            return webDriver.findElement(
+//                    By.xpath(".//*[@class='pull-left image']//img[@class='img-circle']"))
+//                    .isDisplayed();   //есть ли на страничке аватар (показан)
+//        } catch (Exception e) {
+//            return false;
+//        }
+    }
+
+    public void clickOnMenuDictionary() {
+        actionWithOurElement.clickOnElement(menuDictionary);
+    }
+
+    public  void clickOnSubMenuSpares(){
+        actionWithOurElement.clickOnElement(subMenuSpares);
     }
 }
