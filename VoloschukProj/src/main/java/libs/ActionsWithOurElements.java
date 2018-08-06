@@ -1,5 +1,6 @@
 package libs;
 
+import javafx.scene.control.CheckBox;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -79,7 +80,43 @@ public class ActionsWithOurElements {
         try {
             Select select = new Select(dropDownElement);
             select.selectByValue(value);
+            logger.info(value + " was selected in DD");
         } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    public void clickValueInDD(WebElement dropDownList, WebElement dropDownElement) {
+        try {
+            dropDownList.click();
+            dropDownElement.click();
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+
+    }
+
+    /**
+     * Method set CheckBox State
+     *
+     * @param checkBox
+     * @param checkBoxState - "check" or "uncheck"
+     */
+    public void setCheckBoxState(CheckBox checkBox, String checkBoxState) {
+        try {
+            if (checkBoxState == "check") {
+                if (checkBox.isSelected() != true) {
+                    checkBox.setSelected(true);
+                }
+            } else if (checkBoxState == "uncheck") {
+                if (checkBox.isSelected() == true) {
+                    checkBox.setSelected(false);
+                }
+            } else {
+              Assert.fail("CheckBox state can be only check or uncheck, cannot set CheckBox state");
+              logger.error("CheckBox state can be only check or uncheck, cannot set CheckBox state");
+            }
+            } catch (Exception e) {
             printErrorAndStopTest(e);
         }
     }

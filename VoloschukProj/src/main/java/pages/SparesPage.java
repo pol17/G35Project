@@ -24,14 +24,21 @@ public class SparesPage extends ParentPage {
     }
 
     private void clickOnSpare(String nameOfSpare) {
-        actionsWithOurElements.clickOnElement(".//*[text='"+nameOfSpare+"']");
+      //  actionsWithOurElements.clickOnElement(".//*[text='"+nameOfSpare+"']");
+        actionsWithOurElements.clickOnElement(".//td[contains(text(), '"+nameOfSpare+"')]");
     }
 
     private boolean isSpareInList(String nameOfSpare) {
-        return actionsWithOurElements.isElementInList(".//*[text='"+nameOfSpare+"']");
+    //    return actionsWithOurElements.isElementInList(".//*[text='"+nameOfSpare+"']");
+        return actionsWithOurElements.isElementInList(".//td[contains(text(), '"+nameOfSpare+"')]");
     }
 
     public void clickOnButtonPlus() {
         actionsWithOurElements.clickOnElement(buttonPlus);
+    }
+
+    public boolean isNewSpareAdded(String nameOfSpare) {
+   //     return actionsWithOurElements.isElementInList(".//*[text='"+nameOfSpare+"']");
+        return actionsWithOurElements.isElementInList(".//td[contains(text(), '"+nameOfSpare+"')]");
     }
 }

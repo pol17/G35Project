@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,5 +37,10 @@ public class EditSparePage extends ParentPage {
 
     public void selectSpareType(String value) {
         actionsWithOurElements.selectValueInDD(typeOfSparesDD, value);
+    }
+
+    public void clickSpareType(Integer numberOfSpareTypeInDD) {
+        actionsWithOurElements.clickValueInDD(typeOfSparesDD,
+                webDriver.findElement(By.xpath(".//select[@id='spares_spareType']//option[@value='" + numberOfSpareTypeInDD + "']")));
     }
 }
