@@ -3,7 +3,9 @@ package pages;
 import libs.ActionsWithOurElements;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class ParentPage {
@@ -33,4 +35,17 @@ public class ParentPage {
             Assert.fail("Can't work with Url");
         }
     }
-}
+
+    public void CheckBox () {
+        WebElement checkBox1;
+        WebElement checkBox2;
+      checkBox1 =  webDriver.findElement(By.xpath(".//somexpath"));
+                if (!checkBox1.isSelected()) {
+                    checkBox1.click();
+                }
+      checkBox2= webDriver.findElement(By.xpath("somexpath"));
+          if (checkBox2.isSelected()) {
+              checkBox2.click();
+          }
+        }
+    }
