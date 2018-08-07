@@ -18,4 +18,14 @@ public class HomePage extends ParentPage{
             return false;
         }
     }
+
+    public boolean isSubmitButtonPresent(){
+        try{
+            return webDriver.findElement(
+                    By.xpath(".//button[@type='submit']"))
+                    .isDisplayed();
+        } catch (Exception e){
+            return false;
+        }
+    }
 }

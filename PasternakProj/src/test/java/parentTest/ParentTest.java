@@ -13,14 +13,14 @@ import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class ParentTest {
-    WebDriver webDriver;
+    protected WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
     protected LoginPage loginPage;
     protected HomePage homePage;
 
     @Before
     public void setUp(){
-        File file = new File("/home/uniuser/chromedriver_linux64/chromedriver");
+        File file = new File("/home/tanya/chromedriver_linux64/chromedriver");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();
