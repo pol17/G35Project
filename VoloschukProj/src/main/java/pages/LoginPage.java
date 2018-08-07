@@ -36,49 +36,14 @@ public class LoginPage extends ParentPage {
 
     public void enterLogin(String login){
         actionsWithOurElements.enterTextToElement(userNameInput, login);
- /*       try {
-//            WebElement webElement = webDriver.findElement(By.name("_username"));
-//            webElement.clear();
-//            webElement.sendKeys(login);
-            userNameInput.clear();
-            userNameInput.sendKeys(login);
-            logger.info(login + " was input into input login");
-
-        } catch (Exception e){
-            logger.error("Cannot work with element");
-            Assert.fail("Cannot work with element");
-        }*/
-
     }
 
     public void enterPass(String pass){
         actionsWithOurElements.enterTextToElement(passwordInput, pass);
-/*        try {
-    //        WebElement webElement = webDriver.findElement(By.id("password"));
-    //        webElement.clear();
-    //        webElement.sendKeys(pass);
-            passwordInput.clear();
-            passwordInput.sendKeys(pass);
-            logger.info(pass + " was input into input password");
-
-        } catch (Exception e){
-            logger.error("Cannot work with element");
-            Assert.fail("Cannot work with element");
-        }*/
-
     }
 
     public void clickOnSubmitButton(){
         actionsWithOurElements.clickOnElement(submitButton);
-/*        try {
-        //    WebElement webElement = webDriver.findElement(By.tagName("button"));
-        //    webElement.click();
-            submitButton.click();
-            logger.info("Submit button was clicked");
-        } catch (Exception e){
-            logger.error("Cannot work with element");
-            Assert.fail("Cannot work with element");
-        }*/
     }
 
     public boolean isButtonLoginPresent () {

@@ -1,5 +1,4 @@
-package loginTest;
-
+package loginTests;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -17,14 +16,14 @@ public class LoginTestWithOutPageObject {
     WebDriver webDriver;
 
     @Before
-    public void setUp(){
-        File file = new File("./src/drivers/chromedriver.exe");
+    public void setUp() {
+        File file = new File("./src/drivers/chromedriver");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         webDriver = new ChromeDriver();
     }
 
     @Test
-    public void validLogIn(){
+    public void validLogIn() {
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         webDriver.get("http://v3.test.itpmgroup.com");
@@ -41,18 +40,20 @@ public class LoginTestWithOutPageObject {
 
 
     }
+
     @After
-    public void tearDown () {
+    public void tearDown() {
         webDriver.quit();
     }
 
-    private boolean isAvatarPresent () {
+    private boolean isAvatarPresent(){
         try {
-            return webDriver.findElement(By.xpath(".//*[@class='pull-left image']//img[@class='img-circle']"))
-                .isDisplayed();
-
-        } catch (Exception e) {
-            return  false;
+            return webDriver.findElement(
+                    By.xpath(".//*[@class='pull-left "))
+                    .isDisplayed();
+        } catch (Exception e){
+            return false;
         }
     }
 }
+
