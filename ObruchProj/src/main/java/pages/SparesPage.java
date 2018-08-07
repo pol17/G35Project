@@ -1,5 +1,6 @@
 package pages;
 
+import com.sun.xml.internal.bind.v2.TODO;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,6 +37,7 @@ public class SparesPage extends ParentPage {
     }
 
     public boolean isNewSpareAdded(String nameOfSpare) {
+        //TODO ADD validation that only 1 element in list
 //        if (webDriver.findElements(By))
         try {
             return this.isSpareInList(nameOfSpare);
