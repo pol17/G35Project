@@ -6,9 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class SparesPage extends ParentPage {
-    @FindBy (xpath = ".//*[@data-original-title='Add']")
+    @FindBy(xpath = ".//*[@data-original-title='Add']")
     private WebElement buttonPlus;
-
     public SparesPage(WebDriver webDriver) {
         super(webDriver, "/dictionary/spares");
     }
@@ -25,7 +24,6 @@ public class SparesPage extends ParentPage {
     private void clickOnSpare(String nameOfSpare) {
         actionsWithOurElements.clickOnElement(".//*[text()='" + nameOfSpare + "']");
     }
-
     private boolean isSpareInList(String nameOfSpare) {
         return actionsWithOurElements.isElementInList (".//*[text()='" + nameOfSpare + "']");
     }
@@ -33,7 +31,8 @@ public class SparesPage extends ParentPage {
     public void clickOnButtonPlus() {
         actionsWithOurElements.clickOnElement(buttonPlus);
     }
-
-    //public boolean isNewSpareAdded(String nameOfSpare) {
-        //return
+ hw-NewSpareAdded
+    public boolean isNewSpareAdded(String nameOfSpare) {
+        return actionsWithOurElements.isElementInList(".//*[text()='" + nameOfSpare + "']");
     }
+}
