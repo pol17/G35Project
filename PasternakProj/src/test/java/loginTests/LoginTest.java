@@ -23,9 +23,8 @@ public class LoginTest extends ParentTest {
         loginPage.enterLogin("invalidLogin");
         loginPage.enterPass("909090");
         loginPage.clickOnSubmitButton();
-        Assert.assertEquals(
-                "Url is not expected","http://v3.test.itpmgroup.com/login",
-                webDriver.getCurrentUrl());
+
+        loginPage.checkCurrentUrl();
         checkAC("Avatar is present", homePage.isAvatarPresent(), false);
         checkAC("Submit button is present", true, loginPage.isSubmitButtonPresent());
 
