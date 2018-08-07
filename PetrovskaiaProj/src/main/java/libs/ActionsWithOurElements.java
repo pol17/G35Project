@@ -17,15 +17,30 @@ public class ActionsWithOurElements {
         this.webDriver = webDriver;
     }
 
-    //метод для ввода текста
     public void enterTextToElement(WebElement webElement, String text) {
         try {
             webElement.clear();
             webElement.sendKeys(text);
-            logger.info(text + " was inputted into element");
+            logger.info(text + " was inputed into element");
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
+    }
+
+    public boolean isElementDisplay(WebElement webElement) {
+        try {
+            boolean state = webElement.isDisplayed();
+            logger.info("Element is displayed" + state);
+            return state;
+        } catch (Exception e) {
+            logger.info("Element is display" + false);
+            return false;
+        }
+    }
+
+    private void printErrorAndStopTest(Exception e) {
+        logger.error("Can't work with element" + e);
+        Assert.fail("Can't work with element" + e);
     }
 
     public void clickOnElement(WebElement webElement) {
@@ -37,29 +52,13 @@ public class ActionsWithOurElements {
         }
     }
 
-    public boolean isElementDisplayed(WebElement webElement) {
-        try {
-            boolean state = webElement.isDisplayed();
-            logger.info("Element is display -> " + state);
-            return state;
-        } catch (Exception e) {
-            logger.info("Element is display -> " + false);
-            return false;
-        }
-    }
-
-    private void printErrorAndStopTest(Exception e) {
-        logger.error("Cannot work with element " + e);
-        Assert.fail("Cannot work with element " + e);
-    }
-
     public boolean isElementInList(String xPathLocator) {
         try {
-            List<WebElement> webElementList = webDriver.findElements(By.xpath(xPathLocator));
-            if (webElementList.size() > 0) {
-                return true;
+            List<WebElement> webElementList =webDriver.findElements(By.xpath(xPathLocator));
+            if (webElementList.size()>0) {
+                return true ;
             } else {
-                return false;
+                return  false;
             }
         } catch (Exception e) {
             return false;
@@ -68,18 +67,18 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(String xPathLocator) {
         try {
-            WebElement webElement = webDriver.findElement(By.xpath(xPathLocator));
+            WebElement webElement= webDriver.findElement(By.xpath(xPathLocator));
             clickOnElement(webElement);
-        } catch (Exception e) {
-            printErrorAndStopTest(e);
+    }catch (Exception e) {
+        printErrorAndStopTest(e);
         }
     }
 
-    public void selectValueInDropDown(WebElement dropDownElement, String value) {
+    public void selectValueInDD(WebElement dropDownElement, String value) {
         try {
-            Select select = new Select(dropDownElement);
+            Select select= new Select(dropDownElement);
             select.selectByValue(value);
-            logger.info(value + " was selected in DropDown");
+            logger.info(value + " was selected in DD");
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
