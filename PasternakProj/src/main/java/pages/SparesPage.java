@@ -37,8 +37,6 @@ public class SparesPage extends ParentPage {
     }
 
     public boolean isNewspareAdded(String nameOfSpare) {
-        return true;
-
-
+        return actionsWithOurElements.isElementInList(".//*[text = '" + nameOfSpare + "']");
     }
 }
