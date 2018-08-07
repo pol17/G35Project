@@ -28,7 +28,7 @@ public class ParentTest {
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize(); //TODO тест падает, потому что не может отработать этот метод
-        webDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
         sparesPage = new SparesPage(webDriver);
@@ -42,8 +42,8 @@ public class ParentTest {
     protected void checkAC(String massage, boolean actual, boolean expexted){
         if (actual != expexted){
             logger.error("AC failed: " + massage);
-        } else {
-            Assert.assertEquals(massage, expexted, actual);
         }
+            Assert.assertEquals(massage, expexted, actual);
+
     }
 }

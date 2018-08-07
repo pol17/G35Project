@@ -5,17 +5,17 @@ import org.junit.Test;
 import parentTest.ParentTest;
 
 public class AddNewSpare extends ParentTest {
-    final String nameOfSpare = "pastSpare";
+    final String nameOfSpare = "pastSpare123";
 
     @Test
     public void addNewSpare() {
         loginPage.userValidLogin("Student", "909090");
         homePage.clickOnMenuDictionary();
-        try {
-            Thread.sleep(20000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(20000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         homePage.clickOnSubMenuSpares();
         sparesPage.checkCurrentUrl();
         sparesPage.deletingAllSparesWithName(nameOfSpare); //TODO не отрабатывает
@@ -26,10 +26,12 @@ public class AddNewSpare extends ParentTest {
         editSparePage.clickButtonCreate();
         sparesPage.checkCurrentUrl();
 
-        checkAC("New spare wasn't added", sparesPage.isNewspareAdded(nameOfSpare), true);
+        checkAC("New spare wasn't added", sparesPage.isNewSpareAdded(nameOfSpare), true);
     }
+
     @After
-    public void deletingNewSpare(){
+    public void deletingNewSpare() {
+
         sparesPage.deletingAllSparesWithName(nameOfSpare);
     }
 
