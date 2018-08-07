@@ -46,6 +46,7 @@ public class LoginTestWithOutPageObject {
     public  void  tearDown(){
         webDriver.quit();
     }
+
     private boolean isAvatarPresent() {
         try {
             return webDriver.findElement(By.xpath(".//*[@class='pull-left image']//img[@class='img-circle']")).isDisplayed();

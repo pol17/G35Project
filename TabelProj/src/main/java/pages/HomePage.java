@@ -15,8 +15,12 @@ public class HomePage extends ParentPage{
     @FindBy(id = "spares")
     private WebElement subMenuSpares;
 
+    @FindBy(tagName ="button")
+    private  WebElement subbutton;
     public HomePage(WebDriver webDriver) {
         super(webDriver, "/");
+
+
     }
         /**
      * Научить проверять наличие Аватар
@@ -30,6 +34,10 @@ public class HomePage extends ParentPage{
 //        } catch (Exception e) {
 //            return false;
 //        }
+    }
+
+    public boolean isSubminButtonPresent(){
+        return  actionWithOurElement.isElementDisplay(subbutton);
     }
 
     public void clickOnMenuDictionary() {

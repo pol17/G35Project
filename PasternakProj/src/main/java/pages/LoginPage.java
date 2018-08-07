@@ -4,10 +4,21 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends ParentPage {
+    HomePage homePage;
+
+    @FindBy(name = "_username")
+    private WebElement userNameInput;
+    @FindBy(id = "password")
+    private WebElement passwordInput;
+    @FindBy(tagName = "button")
+    private WebElement buttonSubmit;
+
     public LoginPage(WebDriver webDriver) {
         super(webDriver, "/login");
+        homePage = new HomePage(webDriver);
     }
 
     public void openPage() {
@@ -21,43 +32,33 @@ public class LoginPage extends ParentPage {
         }
     }
 
-    public void enterLogin(String login) {
-        try{
-            WebElement webElement = webDriver.findElement(By.name("_username"));
-            webElement.clear();
-            webElement.sendKeys(login);
-            logger.info(login + " was input into Login");
+    public boolean isSubmitButtonPresent() {
+        return actionsWithOurElements.isElementDisplay(buttonSubmit);
+    }
 
-        } catch (Exception e) {
-            logger.error("Can't work with element");
-            Assert.fail("Can't work with login");
-        }
+    public void enterLogin(String login) {
+        actionsWithOurElements.enterTextToElement(userNameInput, login);
     }
 
     public void enterPass(String pass) {
-        try{
-            WebElement webElement = webDriver.findElement(By.id("password"));
-            webElement.clear();
-            webElement.sendKeys(pass);
-            logger.info(pass + " was input into Pass");
-
-        } catch (Exception e) {
-            logger.error("Can't work with element");
-            Assert.fail("Can't work with element");
-        }
+        actionsWithOurElements.enterTextToElement(passwordInput, pass);
     }
 
-    public void clickOnSubmitButton(){
-        try {
-            WebElement webElement = webDriver.findElement(By.tagName("button"));
-            webElement.click();
-            logger.info("Button submit was clicked");
-
-        } catch (Exception e) {
-            logger.error("Can't work with element");
-            Assert.fail("Can't work with element");
-        }
+    public void clickOnSubmitButton() {
+        actionsWithOurElements.clickOnElement(buttonSubmit);
     }
 
-
+    /**
+     * Method valid login
+     * @param login (only valid login)
+     * @param password (only valid password)
+     */
+    public void userValidLogin(String login, String password) {
+        openPage();
+        enterLogin(login);
+        enterPass(password);
+        clickOnSubmitButton();
+        homePage.checkCurrentUrl();
+        homePage.isAvatarPresent();
+    }
 }
