@@ -84,4 +84,18 @@ public class ActionWithOurElements {
             printErrorAndStopTest(e);
         }
     }
+
+    public void selectFromDDLikeUser (WebElement ddElement, String value) {
+        this.clickOnElement(ddElement);
+        List<WebElement> allOptions = ddElement.findElements(By.tagName("option"));
+        for (WebElement option : allOptions) {
+            if (option.getText().equals(value)) {
+                option.click();
+            }
+
+        }
+
+    }
+
+
 }

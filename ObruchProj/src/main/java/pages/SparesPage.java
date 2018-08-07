@@ -36,6 +36,13 @@ public class SparesPage extends ParentPage {
     }
 
     public boolean isNewSpareAdded(String nameOfSpare) {
-        return false;
+//        if (webDriver.findElements(By))
+        try {
+            return this.isSpareInList(nameOfSpare);
+        } catch (Exception e) {
+            logger.error("New spare " + nameOfSpare + " was NOT added");
+            return false;
+        }
+
     }
 }
