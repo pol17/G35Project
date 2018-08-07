@@ -5,7 +5,9 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -13,13 +15,19 @@ import java.util.List;
 public class ActionsWithOurElements {
     WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
+    WebDriverWait webDriverWait20;
+    WebDriverWait webDriverWait40;
 
     public ActionsWithOurElements(WebDriver webDriver) {
+
         this.webDriver = webDriver;
+        webDriverWait20 = new WebDriverWait(webDriver, 20);
+        webDriverWait40 = new WebDriverWait(webDriver,40);
     }
 
     public void enterTextToElement(WebElement webElement, String text) {
         try {
+            webDriverWait40.until(ExpectedConditions.visibilityOf(webElement));
             webElement.clear();
             webElement.sendKeys(text);
             logger.info(text + " was entered into element");
@@ -30,6 +38,9 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(WebElement webElement) {
         try {
+            webDriverWait20.until(ExpectedConditions.elementToBeClickable(webElement));
+            //example of using not in ExpectedConditions
+            // webDriverWait20.until(ExpectedConditions.not(ExpectedConditions.elementToBeClickable(webElement)));
             webElement.click();
             logger.info("Element was clicked");
         } catch (Exception e) {
@@ -70,14 +81,13 @@ public class ActionsWithOurElements {
     //check if element exists and only one
     public boolean isElementInListOnlyOne(String xPathLocator) {
         try {
-           List<WebElement> webElementList = webDriver.findElements(By.xpath(xPathLocator));
-           if (webElementList.size() == 1){
-               return true;
-           } else {
-               return false;
-           }
-        } catch (Exception e)
-        {
+            List<WebElement> webElementList = webDriver.findElements(By.xpath(xPathLocator));
+            if (webElementList.size() == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
             return false;
         }
     }
@@ -102,8 +112,8 @@ public class ActionsWithOurElements {
     }
 
     public void clickValueInDD(WebElement dropDownList, WebElement dropDownElement) {
-            clickOnElement(dropDownList);
-            clickOnElement(dropDownElement);
+        clickOnElement(dropDownList);
+        clickOnElement(dropDownElement);
     }
 
     /**
@@ -122,9 +132,7 @@ public class ActionsWithOurElements {
                 if (checkBox.isSelected() == true) {
                     clickOnElement(checkBox);
                 }
-            }
-            else
-                {
+            } else {
                 logger.error("CheckBox state can be only check or uncheck, cannot set CheckBox state");
                 Assert.fail("CheckBox state can be only check or uncheck, cannot set CheckBox state");
             }
