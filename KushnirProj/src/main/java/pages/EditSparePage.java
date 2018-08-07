@@ -13,8 +13,11 @@ public class EditSparePage extends ParentPage {
     private WebElement spareNameInput;
     @FindBy(name = "add")
     private WebElement buttonCreate;
-    @FindBy(name = "select")
+    @FindBy(id = "spares_spareType")   // name select
     private WebElement typeOfSparesDD;
+
+    @FindBy(id=".//*[@id='spares_spareType']/option[4]")
+    private WebElement selectTypeOfSpares;
 
     public EditSparePage(WebDriver webDriver) {
         super(webDriver, "/dictionary/spares/edit"  );
@@ -36,6 +39,20 @@ public class EditSparePage extends ParentPage {
         actionsWithOurElements.selectValueInDD(typeOfSparesDD, value);
 
     }
+
+    /**
+     *  method selecting spare type from dropdown clicking upon two elements
+     */
+
+    public void clickOnMenuSelecSpareType (){
+        actionsWithOurElements.clickOnElement(typeOfSparesDD);
+    }
+
+    public void clickOnSpareType (){
+        actionsWithOurElements.clickOnElement(selectTypeOfSpares);
+    }
+
+
 }
 
 
