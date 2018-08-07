@@ -35,4 +35,10 @@ public class SparesPage extends ParentPage {
     public void clickOnButtonPlus() {
         actionsWithOurElements.clickOnElement(buttonPlus);
     }
+
+    public boolean isNewspareAdded(String nameOfSpare) {
+        return true;
+
+
+    }
 }

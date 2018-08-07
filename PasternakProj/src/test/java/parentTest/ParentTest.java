@@ -27,7 +27,7 @@ public class ParentTest {
         File file = new File("/home/uniuser/chromedriver_linux64/chromedriver");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         webDriver = new ChromeDriver();
-//        webDriver.manage().window().maximize();
+        webDriver.manage().window().maximize(); //TODO тест падает, потому что не может отработать этот метод
         webDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);

@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -71,5 +72,16 @@ public class ActionsWithOurElements  {
         } catch (Exception e){
             printErrorAndStopTest(e);
         }
+    }
+
+    public void selectValueInDD(WebElement dropDownElement, String value) {
+        try {
+            Select select = new Select(dropDownElement);
+            select.selectByValue(value);
+            logger.info(value + " was selected in DD");
+        }catch (Exception e){
+            printErrorAndStopTest(e);
+        }
+
     }
 }
