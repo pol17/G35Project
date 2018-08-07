@@ -17,6 +17,7 @@ public class AddNewSpare extends ParentTest {
         }
         homePage.clickOnSubMenuSpares();
         sparesPage.checkCurrentUrl();
+        sparesPage.deletingAllSparesWithName(nameOfSpare);
 
     }
 

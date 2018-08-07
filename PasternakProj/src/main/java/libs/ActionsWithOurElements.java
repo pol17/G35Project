@@ -2,8 +2,11 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class ActionsWithOurElements  {
     WebDriver webDriver;
@@ -40,7 +43,6 @@ public class ActionsWithOurElements  {
         } catch (Exception e){
             logger.info("Element is displayed -> false");
             return false;
-
         }
     }
 
@@ -49,5 +51,25 @@ public class ActionsWithOurElements  {
         Assert.fail("Cannot work with elemetn " + e);
     }
 
+    public boolean isElementInList(String xPathLocator) {
+        try {
+            List<WebElement> webElementList = webDriver.findElements(By.xpath(xPathLocator));
+            if (webElementList.size() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e){
+            return false;
+        }
+    }
 
+    public void clickOnElement(String xPathLocator) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(xPathLocator));
+            clickOnElement(webElement);
+        } catch (Exception e){
+            printErrorAndStopTest(e);
+        }
+    }
 }
