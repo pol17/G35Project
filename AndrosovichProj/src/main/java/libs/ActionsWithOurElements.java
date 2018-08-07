@@ -67,6 +67,19 @@ public class ActionsWithOurElements {
         }
     }
 
+    public boolean isOneElementInList(String xPathLocator) {
+        try {
+            List<WebElement> webElementList = webDriver.findElements(By.xpath(xPathLocator));
+            if (webElementList.size() == 1 ){
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e){
+            return false;
+        }
+    }
+
     public void clickOnElement(String xPathLocator) {
         try {
             WebElement webElement = webDriver.findElement(By.xpath(xPathLocator));
