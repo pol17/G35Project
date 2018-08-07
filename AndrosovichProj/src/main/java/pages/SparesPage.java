@@ -34,4 +34,8 @@ public class SparesPage extends ParentPage {
     public void clickOnButtonPlus() {
         actionsWithOurElements.clickOnElement(buttonPlus);
     }
+
+    public boolean isNewSpareAdded(String nameOfSpare) {
+        return actionsWithOurElements.isOneElementInList(".//*[text()='" + nameOfSpare + "']");
+    }
 }
