@@ -22,8 +22,7 @@ public class AddNewSpare extends Parenttest {
         sparesPage.clickOnButtonPlus();
         editSparePage.checkCurrentUrl();
         editSparePage.enterSparename (nameOfSpare);
-        editSparePage.MyselectSpareType();
-       // editSparePage.selectSpareType ("4");
+        editSparePage.selectSpareType ("4");
         editSparePage.clickButtonCreate();
         sparesPage.checkCurrentUrl();
         checkAC("New spare wasn't added", sparesPage.isNewSpareAdded(nameOfSpare),true);

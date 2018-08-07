@@ -1,5 +1,6 @@
 package spears;
 
+import org.junit.After;
 import org.junit.Test;
 import parentTest.ParentTest;
 
@@ -19,6 +20,19 @@ public class AddNewSpear extends ParentTest {
         homePage.clickOnSubMenuSpares();
         sparesPage.checkCurrentPageUrl();
 
+        sparesPage.delatingAllSparesWithName(nameOfSpear);
+        sparesPage.clickOnButtonPlus();
+        editSparePage.checkCurrentPageUrl();
+        editSparePage.enterSpareName(nameOfSpear);
+        editSparePage.selectSpareType("4");
+        editSparePage.clickButtonCreate();
+        sparesPage.checkCurrentPageUrl();
+        checkAcceptanceCriteria("New spare wasn't added",
+                sparesPage.isNewSpareAdded(nameOfSpear),
+                true);
+
+
+
 
 
 
@@ -26,7 +40,10 @@ public class AddNewSpear extends ParentTest {
     }
 
 
-
+@After
+    public void deletingNewSpare(){
+        sparesPage.delatingAllSparesWithName(nameOfSpear);
+    }
 
 
 

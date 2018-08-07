@@ -2,8 +2,12 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class ActionsWithOurElements {
     WebDriver webDriver;
@@ -13,7 +17,7 @@ public class ActionsWithOurElements {
         this.webDriver = webDriver;
     }
 
-//метод для ввода текста
+    //метод для ввода текста
     public void enterTextToElement(WebElement webElement, String text) {
         try {
             webElement.clear();
@@ -25,11 +29,12 @@ public class ActionsWithOurElements {
     }
 
     public void clickOnElement(WebElement webElement) {
-      try {
-        webElement.click();
-        logger.info("Element was clicked");
-    } catch (Exception e) {
-        printErrorAndStopTest(e);    }
+        try {
+            webElement.click();
+            logger.info("Element was clicked");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
     }
 
     public boolean isElementDisplayed(WebElement webElement) {
@@ -37,7 +42,7 @@ public class ActionsWithOurElements {
             boolean state = webElement.isDisplayed();
             logger.info("Element is display -> " + state);
             return state;
-        }catch (Exception e) {
+        } catch (Exception e) {
             logger.info("Element is display -> " + false);
             return false;
         }
@@ -46,5 +51,37 @@ public class ActionsWithOurElements {
     private void printErrorAndStopTest(Exception e) {
         logger.error("Cannot work with element " + e);
         Assert.fail("Cannot work with element " + e);
+    }
+
+    public boolean isElementInList(String xPathLocator) {
+        try {
+            List<WebElement> webElementList = webDriver.findElements(By.xpath(xPathLocator));
+            if (webElementList.size() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void clickOnElement(String xPathLocator) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(xPathLocator));
+            clickOnElement(webElement);
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    public void selectValueInDropDown(WebElement dropDownElement, String value) {
+        try {
+            Select select = new Select(dropDownElement);
+            select.selectByValue(value);
+            logger.info(value + " was selected in DropDown");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
     }
 }

@@ -48,4 +48,3 @@ public class ParentPage {
               checkBox2.click();
           }
         }
-    }
