@@ -39,6 +39,6 @@ public class SparesPage extends ParentPage {
 
     public boolean isNewSpareAdded(String nameOfSpare) {
    //     return actionsWithOurElements.isElementInList(".//*[text='"+nameOfSpare+"']");
-        return actionsWithOurElements.isElementInList(".//td[contains(text(), '"+nameOfSpare+"')]");
+        return actionsWithOurElements.isElementInListOnlyOne(".//td[contains(text(), '"+nameOfSpare+"')]");
     }
 }

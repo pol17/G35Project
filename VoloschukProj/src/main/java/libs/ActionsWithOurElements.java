@@ -53,6 +53,7 @@ public class ActionsWithOurElements {
         Assert.fail("Cannot work with element " + e);
     }
 
+    //check if element exists
     public boolean isElementInList(String xPathLocator) {
         try {
             List<WebElement> webElementList = webDriver.findElements(By.xpath(xPathLocator));
@@ -62,6 +63,21 @@ public class ActionsWithOurElements {
                 return false;
             }
         } catch (Exception e) {
+            return false;
+        }
+    }
+
+    //check if element exists and only one
+    public boolean isElementInListOnlyOne(String xPathLocator) {
+        try {
+           List<WebElement> webElementList = webDriver.findElements(By.xpath(xPathLocator));
+           if (webElementList.size() == 1){
+               return true;
+           } else {
+               return false;
+           }
+        } catch (Exception e)
+        {
             return false;
         }
     }
@@ -86,13 +102,8 @@ public class ActionsWithOurElements {
     }
 
     public void clickValueInDD(WebElement dropDownList, WebElement dropDownElement) {
-        try {
             clickOnElement(dropDownList);
             clickOnElement(dropDownElement);
-        } catch (Exception e) {
-            printErrorAndStopTest(e);
-        }
-
     }
 
     /**
