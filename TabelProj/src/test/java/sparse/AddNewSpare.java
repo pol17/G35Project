@@ -22,14 +22,13 @@ public class AddNewSpare extends ParentTest {
         sparesPage.clickOnButtonPlus();
         editSparePage.cheekCurrentUrl();
         editSparePage.enterSpareName(nameOfSpare);
-        // editSparePage.clickSelect();
         editSparePage.selectSpareType("4");
         editSparePage.clickButtonCreate();
         sparesPage.cheekCurrentUrl();
 
-//        checkAC("New spare wasn't added",
-//                sparesPage.isNewSpareAdded(nameOfSpare),
-//                true);
+        checkAC("New spare wasn't added",
+                sparesPage.isNewSpareAdded(nameOfSpare),
+                true);
     }
 
     @After

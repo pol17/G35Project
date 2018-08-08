@@ -77,12 +77,15 @@ public class ActionWithOurElement {
     }
 
     public void selectValueInDD(WebElement dropDownElement, String value) {
-        try{
+        try {
             Select select = new Select(dropDownElement);
             select.selectByValue(value);  //он сразу выберит нужный элемент
             logger.info(value + " was select in DD");
-        }catch (Exception e){
+        } catch (Exception e) {
             printErrorAndStopTest(e);
         }
     }
+
+
+
 }
