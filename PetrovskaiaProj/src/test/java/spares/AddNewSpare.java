@@ -2,15 +2,15 @@ package spares;
 
 import org.junit.After;
 import org.junit.Test;
-import parentTest.ParentTest;
+import parenttest.Parenttest;
 
-public class AddNewSpare extends ParentTest {
-    final String nameOfSpare = "testSpare0170";
+public class AddNewSpare extends Parenttest {
+    final String nameOfSpare = "PetrovskaSpare";
 
     @Test
     public void addNewSpare() {
-        loginPage.userValidLogIn("Student", "909090");
-        homePage.clickOnMenuDictionary();
+        loginPage.userValidLogin("Student", "909090");
+        homePage.clickOnMenuDictionary ();
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -21,17 +21,14 @@ public class AddNewSpare extends ParentTest {
         sparesPage.deletingAllSparesWithName(nameOfSpare);
         sparesPage.clickOnButtonPlus();
         editSparePage.checkCurrentUrl();
-        editSparePage.enterSpareName(nameOfSpare);
-        editSparePage.selectSpareType("4");
+        editSparePage.enterSparename (nameOfSpare);
+        editSparePage.selectSpareType ("4");
         editSparePage.clickButtonCreate();
         sparesPage.checkCurrentUrl();
-
-//        checkAC("New spare was not added",
-//                sparesPage.isNewSpareAdded(nameOfSpare),
-//        true);
-    }
-    @After
-    public void deletingNewSpare() {
+        checkAC("New spare wasn't added", sparesPage.isNewSpareAdded(nameOfSpare),true);
+        }
+        @After
+    public void deletingNewSpare () {
         sparesPage.deletingAllSparesWithName(nameOfSpare);
+        }
     }
-}
