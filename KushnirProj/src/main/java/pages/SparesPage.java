@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class SparesPage extends ParentPage {
     EditSparePage editSparePage;
-    @FindBy(xpath = ".//*[@data-original-title='Add'")
+    @FindBy(xpath = ".//*[@data-original-title='Add']")
     private WebElement buttonPlus;
 
 
@@ -40,6 +40,21 @@ public class SparesPage extends ParentPage {
     }
 
     public boolean isNewSpareAdded(String nameOfSpare) {
-        return actionsWithOurElements.isElementInList(".//*[text()='" + nameOfSpare + "']");
+        try {
+            boolean state = actionsWithOurElements.isElementInList(".//*[text()='" + nameOfSpare + "']");
+            logger.info("Element is displayed -> " + state);
+            return state;
+
+        } catch (Exception e) {
+            logger.info("Element is displayed -> false");
+            return false;
+
+            // return actionsWithOurElements.isElementInList(".//*[text()='" + nameOfSpare + "']");
+
+
+        }
     }
+
+
+
 }
