@@ -6,6 +6,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import pages.EditSparePage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -25,12 +30,12 @@ public class ParentTest {
     protected HomePage homePage;
     protected SparesPage sparesPage;  //объявили
     protected EditSparePage editSparePage;
+    String browser = System.getProperty("browser");
+
 
     @Before  //анатация. метод/данные , junit
     public void setUp() {
-        File file = new File("./src/drivers/chromedriver.exe");
-        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
-        webDriver = new ChromeDriver();
+        initDriver(browser);
         webDriver.manage().window().maximize();  // драйвер сделай окошко максимальтым
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);  //implicitlyWait - неявное ожидание  / 30 - секунд
         loginPage = new LoginPage(webDriver);   // Инициализация
@@ -40,17 +45,54 @@ public class ParentTest {
 
     }
 
+    private void initDriver(String browserName) {
+        if (browserName == null || browserName.equals("chrome")) { //сравнивание стринги - equals
+            logger.info("chrome will be started");
+            File file = new File("./src/drivers/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+            webDriver = new ChromeDriver();
+            logger.info("Chrome is started");
+        } else if ("fareFox".equals(browserName)) {
+            logger.info("FireFox will be started");
+
+            File fileFF = new File("./src/drivers/geckodriver.exe");
+            System.setProperty("webdriver.gecko.driver", fileFF.getAbsolutePath());
+            /*
+             *Настройка браузера
+             */
+            FirefoxOptions profile = new FirefoxOptions();
+            profile.addPreference("browser.startup.page", 0); // Empty start page / что бы открылась 1 пустая страница
+            profile.addPreference("browser.startup.homepage_override.mstone", "ignore"); // Suppress the "What's new" page// закрыть страницу с рекламой
+            webDriver = new FirefoxDriver();
+            logger.info("FireFox is started");
+        } else if ("ie".equals(browser)) {
+            logger.info("IE will be started");
+            File file1 = new File("./src/drivers/IEDriverServer.exe");
+            System.setProperty("webdriver.ie.driver", file1.getAbsolutePath());
+            DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+            capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true); //незашещённый домен (тестовый сервер)
+            capabilities.setCapability("ignoreZoomSetting", true);  // маштаб 100%
+            capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);  //игнор сертификаты
+            webDriver = new InternetExplorerDriver();
+            logger.info(" IE is started");
+
+        } else {
+            logger.error("Can't init Driver");
+            Assert.fail("Can't init Driver");
+        }
+    }
+
     @After  //выполняется в любом случаи, не зависит от +/- результата.
     public void tearDown() {
         webDriver.quit(); //закрывает полность брайзер, close - закрывает только вкладку
 
     }
 
-    protected void checkAC(String message, boolean actual, boolean expected){  //передадим что аватарка есть
-        if (actual !=expected){
+    protected void checkAC(String message, boolean actual, boolean expected) {  //передадим что аватарка есть
+        if (actual != expected) {
             logger.error("AC fail: " + message);
         }
-        Assert.assertEquals(message,expected,actual);
+        Assert.assertEquals(message, expected, actual);
 
     }
 }
