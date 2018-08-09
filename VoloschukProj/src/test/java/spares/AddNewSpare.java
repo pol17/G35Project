@@ -27,7 +27,7 @@ public class AddNewSpare  extends ParentTest {
         editSparePage.clickButtonCreate();
         sparesPage.checkCurrentUrl();
 
-        checkAC("New spare wasn't added",
+        checkAC("New spare wasn't added or more than one spare was added",
                 sparesPage.isNewSpareAdded(nameOfSpare),
                 true);
     }
