@@ -15,5 +15,4 @@ public class LoginTest extends ParentTest {
                 , homePage.isAvatarPresent()
                 , true);
     }
-
 }
