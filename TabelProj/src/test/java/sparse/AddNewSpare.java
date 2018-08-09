@@ -11,6 +11,9 @@ public class AddNewSpare extends ParentTest {
     public void addNewSpare() {
         loginPage.userValidLogIn("Student", "909090");
         homePage.clickOnMenuDictionary();
+        //явное ожидание (Когда появится єлемент в нужном состоянии)
+
+        // задержка   (замерание на указанное время) Thread - поток . метод sleep (2000) 2 сек
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {

@@ -32,7 +32,7 @@ public class ParentTest {
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         webDriver = new ChromeDriver();
         webDriver.manage().window().maximize();  // драйвер сделай окошко максимальтым
-        webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);  //implicitlyWait - неявное ожидание  / 30 - секунд
+        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);  //implicitlyWait - неявное ожидание  / 30 - секунд
         loginPage = new LoginPage(webDriver);   // Инициализация
         homePage = new HomePage(webDriver);
         sparesPage = new SparesPage(webDriver); // добавили страницу которую можем использовать в тестах

@@ -5,21 +5,28 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
 public class ActionWithOurElement {
     WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
+    WebDriverWait webDriverWait20;   // ожидание  20cек
+    WebDriverWait webDriverWait40;
 
 
     public ActionWithOurElement(WebDriver webDriver) {
         this.webDriver = webDriver;
+        webDriverWait20 = new WebDriverWait(webDriver, 20);  //в каком драйвере будет работать и сколько ждать 20 сек
+        webDriverWait40 = new WebDriverWait(webDriver, 40);
     }
 
     public void enterTextToElement(WebElement webElement, String text) {
         try {
+            webDriverWait40.until(ExpectedConditions.visibilityOf(webElement));  //  ждать загрузки импута
             webElement.clear();
             webElement.sendKeys(text);
             logger.info(text + " was inputted into element");
@@ -30,6 +37,11 @@ public class ActionWithOurElement {
 
     public void clickOnElement(WebElement webElement) {
         try {
+            webDriverWait20.until(ExpectedConditions.elementToBeClickable(webElement));  //метод until-( подожди пока)/ExpectedConditions - проверка состояние єл
+
+//            webDriverWait20.until(ExpectedConditions.not
+//                    (ExpectedConditions.elementToBeClickable(webElement)))//метод который инвертирует состояние (!=)  // кнопка станет не активной
+
             webElement.click();
             logger.info("Element was clicked ");
         } catch (Exception e) {
@@ -40,7 +52,7 @@ public class ActionWithOurElement {
     public void clickOnElement(String xPathLocator) {
         try {
             WebElement webElement = webDriver.findElement(By.xpath(xPathLocator));
-            clickOnElement(webElement);
+                       clickOnElement(webElement);
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
