@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.EditSparePage;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -24,16 +25,23 @@ public class ParentTest {
     protected LoginPage loginPage;
     protected HomePage homePage;
     protected SparesPage sparesPage;
+    protected EditSparePage editSparePage;
     String browser = System.getProperty("browser");
 
     @Before
-    public void setUp() {
+    public void setUp(){
+        File file = new File("/home/uniuser/chromedriver_linux64/chromedriver");
+        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+        webDriver = new ChromeDriver();
+        webDriver.manage().window().maximize(); //TODO тест падает, потому что не может отработать этот метод
+        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
         initDriver(browser);
-        webDriver.manage().window().maximize();
 //        webDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
         sparesPage = new SparesPage(webDriver);
+        editSparePage = new EditSparePage(webDriver);
     }
 
     private void initDriver(String browserName) {
@@ -76,8 +84,8 @@ public class ParentTest {
     protected void checkAC(String massage, boolean actual, boolean expexted) {
         if (actual != expexted) {
             logger.error("AC failed: " + massage);
-        } else {
-            Assert.assertEquals(massage, expexted, actual);
         }
+            Assert.assertEquals(massage, expexted, actual);
+
     }
 }
