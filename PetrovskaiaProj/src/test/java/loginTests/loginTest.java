@@ -21,7 +21,7 @@ public class loginTest extends Parenttest {
         loginPage.enterLogin("Student");
         loginPage.enterPass("12345");
         loginPage.clickOnSubmitButton();
-loginPage.checkCurrentUrl();
+        loginPage.checkCurrentUrl();
         Assert.assertEquals("Url is not expected","http://v3.test.itpmgroup.com/login",webDriver.getCurrentUrl());
     }
 }
