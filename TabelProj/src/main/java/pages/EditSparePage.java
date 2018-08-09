@@ -17,6 +17,9 @@ public class EditSparePage extends ParentPage {
     @FindBy(id="spares_spareType")
     private WebElement typeOfSpareDD;
 
+    @FindBy(xpath = ".//option[@value='4']")
+    private WebElement valueClick4;
+
     public EditSparePage(WebDriver webDriver) {
         super(webDriver, "/dictionary/spares/edit");
     }
@@ -37,7 +40,11 @@ public class EditSparePage extends ParentPage {
         actionWithOurElement.selectValueInDD(typeOfSpareDD, value);
     }
 
-//    public void clickSelect() {
-//        actionWithOurElement.clickOnElement(typeOfSpareDD, value);
-//    }
+    public void  selectClickClickk(){
+        actionWithOurElement.clickOnElement(typeOfSpareDD);
+        actionWithOurElement.clickOnElement(valueClick4);
+        logger.info(valueClick4 + " was click");
+
+    }
+
 }

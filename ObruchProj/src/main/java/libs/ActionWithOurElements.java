@@ -2,15 +2,23 @@ package libs;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
 
 public class ActionWithOurElements {
     WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
+    WebDriverWait webDriverWait20;
 
     public ActionWithOurElements(WebDriver webDriver) {
         this.webDriver = webDriver;
+        webDriverWait20 = new WebDriverWait(webDriver,20);
     }
     
     public void enterTextToElement(WebElement webElement, String text) {
@@ -25,6 +33,7 @@ public class ActionWithOurElements {
 
     public void clickOnElement(WebElement webElement){
         try {
+            webDriverWait20.until(ExpectedConditions.elementToBeClickable(webElement));
             webElement.click();
             logger.info(webElement + " was clicked");
         } catch (Exception e) {
@@ -46,6 +55,51 @@ public class ActionWithOurElements {
     private void printErrorAndStopTest(Exception e) {
         logger.error("Can not work with element " + e);
         Assert.fail("Can not work with element " + e);
+    }
+
+
+    public boolean isElementInList(String xpathLocator) {
+        try {
+            List<WebElement> webElementList = webDriver.findElements(By.xpath(xpathLocator));
+            if (webElementList.size() > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void clickOnElement(String xpathLocator) {
+        try {
+            WebElement webElement = webDriver.findElement(By.xpath(xpathLocator));
+            clickOnElement(webElement);
+        }catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    public void selectValueInDD(WebElement dropDownElement, String value) {
+        try {
+            Select select = new Select(dropDownElement);
+            select.selectByValue(value);
+            logger.info(value + " was selected in DD");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    public void selectFromDDLikeUser (WebElement ddElement, String value) {
+        this.clickOnElement(ddElement);
+        List<WebElement> allOptions = ddElement.findElements(By.tagName("option"));
+        for (WebElement option : allOptions) {
+            if (option.getText().equals(value)) {
+                option.click();
+            }
+
+        }
+
     }
 
 

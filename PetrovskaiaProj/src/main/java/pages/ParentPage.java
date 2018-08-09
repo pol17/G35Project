@@ -36,15 +36,16 @@ public class ParentPage {
         }
     }
 
-    public void CheckBox () {
+    public void CheckBox() {
         WebElement checkBox1;
         WebElement checkBox2;
-      checkBox1 =  webDriver.findElement(By.xpath(".//somexpath"));
-                if (!checkBox1.isSelected()) {
-                    checkBox1.click();
-                }
-      checkBox2= webDriver.findElement(By.xpath("somexpath"));
-          if (checkBox2.isSelected()) {
-              checkBox2.click();
-          }
+        checkBox1 = webDriver.findElement(By.xpath(".//somexpath"));
+        if (!checkBox1.isSelected()) {
+            checkBox1.click();
         }
+        checkBox2 = webDriver.findElement(By.xpath("somexpath"));
+        if (checkBox2.isSelected()) {
+            checkBox2.click();
+        }
+    }
+}

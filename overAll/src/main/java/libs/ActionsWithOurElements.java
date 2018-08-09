@@ -4,18 +4,25 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ActionsWithOurElements {
     WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
+    WebDriverWait webDriverWait20;
+    WebDriverWait webDriverWait40;
 
 
     public ActionsWithOurElements(WebDriver webDriver) {
         this.webDriver = webDriver;
+        webDriverWait20 = new WebDriverWait(webDriver, 20);
+        webDriverWait40 = new WebDriverWait(webDriver, 40);
     }
 
     public void enterTextToElement(WebElement webElement, String text){
         try {
+            webDriverWait40.until(ExpectedConditions.visibilityOf(webElement));
             webElement.clear();
             webElement.sendKeys(text);
             logger.info(text + " was inputted into element");
@@ -26,6 +33,10 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(WebElement webElement){
         try{
+            webDriverWait20.until(ExpectedConditions.elementToBeClickable(webElement));
+//            webDriverWait20.until(ExpectedConditions.not(
+//                    ExpectedConditions.elementToBeClickable(webElement)));
+
             webElement.click();
             logger.info("Element was clicked");
         } catch (Exception e){
