@@ -11,6 +11,9 @@ public class AddNewSpare extends ParentTest {
     public void addNewSpare() {
         loginPage.userValidLogIn("Student", "909090");
         homePage.clickOnMenuDictionary();
+        //явное ожидание (Когда появится єлемент в нужном состоянии)
+
+        // задержка   (замерание на указанное время) Thread - поток . метод sleep (2000) 2 сек
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -22,14 +25,13 @@ public class AddNewSpare extends ParentTest {
         sparesPage.clickOnButtonPlus();
         editSparePage.cheekCurrentUrl();
         editSparePage.enterSpareName(nameOfSpare);
-        // editSparePage.clickSelect();
         editSparePage.selectSpareType("4");
         editSparePage.clickButtonCreate();
         sparesPage.cheekCurrentUrl();
 
-//        checkAC("New spare wasn't added",
-//                sparesPage.isNewSpareAdded(nameOfSpare),
-//                true);
+        checkAC("New spare wasn't added",
+                sparesPage.isNewSpareAdded(nameOfSpare),
+                true);
     }
 
     @After
