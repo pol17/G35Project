@@ -78,13 +78,9 @@ public class ActionsWithOurElements {
 
     public boolean isOneElementInList(String xPathLocator) {
         try {
-            List<WebElement> webElementList = webDriver.findElements(By.xpath(xPathLocator));
-            if (webElementList.size() == 1 ){
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception e){
+            webDriver.findElement(By.xpath(xPathLocator));
+            return true;
+            } catch (Exception e){
             return false;
         }
     }
@@ -104,6 +100,24 @@ public class ActionsWithOurElements {
             select.selectByValue(value);
             logger.info(value + " was selected in DropDown");
         } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    public void setCheckBox(WebElement checkBox, String state){
+        try {
+            if (state == "check" & !checkBox.isSelected()){
+                clickOnElement(checkBox);
+                logger.info("Checkbox was checked");
+            } else if (state == "check" & checkBox.isSelected()){
+                logger.info("The checkbox has already been checked");
+            } else if (state == "uncheck" & !checkBox.isSelected()){
+                clickOnElement(checkBox);
+                logger.info("Checkbox was unchecked");
+            } else if (state == "uncheck" & checkBox.isSelected()){
+                logger.info("The checkbox has already been unchecked");
+            }
+        } catch (Exception e){
             printErrorAndStopTest(e);
         }
     }
