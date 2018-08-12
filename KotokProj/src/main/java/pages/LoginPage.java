@@ -62,4 +62,14 @@ public class LoginPage extends ParentPage {
         }
 
     }
+
+    public boolean isLoginButtonpresent() {
+        try {
+            return webDriver.findElement(
+                    By.tagName("button")).isDisplayed();
+
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
