@@ -23,7 +23,8 @@ public class LoginTest extends ParentTest {
         loginPage.enterPass("909090");
         loginPage.clickOnSubmitButton();
         loginPage.checkCurrentUrl();
-
+//        loginPage.isButtonPresent();
+//
         checkAcceptanceCriteria("Avatar is present", homePage.isAvatarPresent(), false);
         checkAcceptanceCriteria("Login button is absent", loginPage.isLoginButtonpresent(), true);
     }
