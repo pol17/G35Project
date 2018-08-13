@@ -50,9 +50,9 @@ public class ActionsWithOurElements {
     public void clickOnElement(WebElement webElement) {
         try {
             webDriverWait20.until(ExpectedConditions.elementToBeClickable(webElement));
-            // webDriverWait20.until(ExpectedConditions.not
-            // (ExpectedConditions.elementToBeClickable(webElement));
-            //webElement.click());
+            //webDriverWait20.until(ExpectedConditions.not
+            //(ExpectedConditions.elementToBeClickable(webElement));
+            webElement.click();
             logger.info("Element was clicked");
         } catch (Exception e) {
             printErrorAndStopTest(e);
