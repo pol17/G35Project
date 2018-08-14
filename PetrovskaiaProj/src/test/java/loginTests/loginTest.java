@@ -11,6 +11,7 @@ public class loginTest extends Parenttest {
         loginPage.enterLogin("Student");
         loginPage.enterPass("909090");
         loginPage.clickOnSubmitButton();
+        homePage.checkCurrentUrl();
         checkAC("Avatar is not present",
                 homePage.isAvatarPresent(),
                 true);
