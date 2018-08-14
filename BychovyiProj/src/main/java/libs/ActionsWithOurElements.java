@@ -91,4 +91,18 @@ public class ActionsWithOurElements {
             printErrorAndStopTest(e);
         }
     }
+
+    public void setNeededStateToCheckBox (WebElement webElement, String neededState){
+        if ("check".equals(neededState) || "uncheck".equals(neededState)){
+            if (webElement.isSelected() && "check".equals(neededState)){
+                logger.info("CheckBox is already checked");
+            } else if (webElement.isSelected() && "uncheck".equals(neededState)){
+                clickOnElement(webElement);
+                logger.info("CheckBox was unchecked");
+            }
+        }else {
+            logger.error(String.format("%s - is not expected state", neededState));
+            Assert.fail(String.format("%s - is not expected state", neededState));
+        }
+    }
 }
