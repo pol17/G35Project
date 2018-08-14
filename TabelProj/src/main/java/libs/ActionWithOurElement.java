@@ -84,6 +84,7 @@ public class ActionWithOurElement {
         }
     }
 
+
     private void printErrorAndStopTest(Exception e) {
         logger.error("Connot work with element " + e);
         Assert.fail("Connot work with element " + e);
