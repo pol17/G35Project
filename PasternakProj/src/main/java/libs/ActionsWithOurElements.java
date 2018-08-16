@@ -73,7 +73,6 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(String xPathLocator) {
         try {
-
             WebElement webElement = webDriver.findElement(By.xpath(xPathLocator));
             clickOnElement(webElement);
         } catch (Exception e) {
@@ -89,6 +88,19 @@ public class ActionsWithOurElements {
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
+    }
 
+    public void setNeededStateToCheckBox(WebElement webElement, String neededState) {
+        if ("check".equals(neededState) || "uncheck".equals(neededState)) {
+            if ((webElement.isSelected() && "check".equals(neededState))) {
+                logger.info("Checkbox is already selected");
+            } else if (webElement.isSelected() && "uncheck".equals(neededState)) {
+                clickOnElement((webElement));
+                logger.info("Checkbox was unchecked");
+            }
+        } else {
+            logger.error(String.format("%s - is not expected", neededState));
+            Assert.fail(String.format("%s - is not Expected", neededState));
+        }
     }
 }
