@@ -1,5 +1,7 @@
 package parentTest;
 
+import libs.ConfigProperties;
+import org.aeonbits.owner.ConfigFactory;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
@@ -27,16 +29,16 @@ public class ParentTest {
     protected SparesPage sparesPage;
     protected EditSparePage editSparePage;
     String browser = System.getProperty("browser");
+    protected static ConfigProperties configProperties = ConfigFactory.create(ConfigProperties.class);
 
     @Before
     public void setUp(){
-        File file = new File("/home/uniuser/chromedriver_linux64/chromedriver");
-        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
-        webDriver = new ChromeDriver();
-        webDriver.manage().window().maximize(); //TODO тест падает, потому что не может отработать этот метод
-        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-
+//        File file = new File("/home/uniuser/chromedriver_linux64/chromedriver");
+//        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+//        webDriver = new ChromeDriver();
         initDriver(browser);
+        webDriver.manage().window().maximize();
+        webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 //        webDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
@@ -86,6 +88,5 @@ public class ParentTest {
             logger.error("AC failed: " + massage);
         }
             Assert.assertEquals(massage, expexted, actual);
-
     }
 }
