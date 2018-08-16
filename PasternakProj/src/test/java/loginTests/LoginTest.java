@@ -1,6 +1,5 @@
 package loginTests;
 
-import org.junit.Assert;
 import org.junit.Test;
 import parentTest.ParentTest;
 
@@ -27,8 +26,6 @@ public class LoginTest extends ParentTest {
         loginPage.checkCurrentUrl();
         checkAC("Avatar is present", homePage.isAvatarPresent(), false);
         checkAC("Submit button is present", true, loginPage.isSubmitButtonPresent());
-
-        //этот тест кликает SubmitButton 15 секунд, из-за implicitlyWait. Как это можно отменить?
     }
 
 }
