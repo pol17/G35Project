@@ -14,7 +14,7 @@ public class EditSparePage extends ParentPage {
     private WebElement buttonCreate;
     @FindBy(tagName = "select")
     private WebElement typeOfSparesDD;
-    @FindBy(xpath = ".//select/option[@value='4']") //Не понял как передать сюда номер строки селекта :(
+//    @FindBy(xpath = ".//select/option[@value=4]") //Не понял как передать сюда номер строки селекта :(
     private WebElement typeOfSpareValue;
 
     public EditSparePage(WebDriver webDriver) {
@@ -40,6 +40,7 @@ public class EditSparePage extends ParentPage {
     public void selectSpareTypeByClick(String value) {
         actionsWithOurElements.clickOnElement(typeOfSparesDD);
 //        actionsWithOurElements.clickOnElement(".//select/option[@value='" + value + "']");
-        actionsWithOurElements.clickOnElement(typeOfSpareValue);
+        actionsWithOurElements.clickOnElement(typeOfSpareValue.findElement(
+                By.xpath(String.format(".//select/option[@value=%s]", value))));
     }
 }

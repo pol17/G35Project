@@ -111,15 +111,29 @@ public class ActionsWithOurElements {
                 logger.info("Checkbox was checked");
             } else if (state == "check" & checkBox.isSelected()){
                 logger.info("The checkbox has already been checked");
-            } else if (state == "uncheck" & !checkBox.isSelected()){
+            } else if (state == "uncheck" & checkBox.isSelected()){
                 clickOnElement(checkBox);
                 logger.info("Checkbox was unchecked");
-            } else if (state == "uncheck" & checkBox.isSelected()){
+            } else if (state == "uncheck" & !checkBox.isSelected()){
                 logger.info("The checkbox has already been unchecked");
             }
         } catch (Exception e){
             printErrorAndStopTest(e);
         }
     }
+    public void setNeededStateToCheckBox(WebElement webElement, String neededState){
+        if ("check".equals(neededState) || "uncheck".equals(neededState)){
+            if (webElement.isSelected() && "check".equals(neededState)){
+                logger.info("Check is already checked");
+            } else if (webElement.isSelected() && "uncheck".equals(neededState)){
+                clickOnElement(webElement);
+                logger.info("CheckBox was unchecked");
+            }
+        } else {
+            logger.error(String.format("%s - is not expected state", neededState));
+            Assert.fail(String.format("%s - is not expected state", neededState));
+        }
+    }
+
 }
 
