@@ -118,6 +118,11 @@ public class ActionsWithOurElements {
             } else if (webElement.isSelected() && "uncheck".equals(neededState)) {
                 clickOnElement(webElement);
                 logger.info("checkbox was unchecked");
+            } else if (!webElement.isSelected() && "uncheck".equals(neededState)){
+                logger.info("checkbox is already unchecked");
+            } else if (!webElement.isSelected() && "check".equals(neededState)) {
+                clickOnElement(webElement);
+                logger.info("checkbox was unchecked");
             }
         } else {
             logger.error(String.format("%s - is not expected state", neededState));
