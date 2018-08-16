@@ -11,7 +11,8 @@ import org.openqa.selenium.support.PageFactory;
 public class ParentPage {
     Logger logger = Logger.getLogger(getClass());
     WebDriver webDriver;
-    protected static ConfigProperties configProperties = ConfigFactory.create(ConfigProperties.class);
+    protected static ConfigProperties configProperties
+            = ConfigFactory.create(ConfigProperties.class);
     String expectedUrl;
     String baseUrl;
     ActionsWithOurElements actionsWithOurElements;
