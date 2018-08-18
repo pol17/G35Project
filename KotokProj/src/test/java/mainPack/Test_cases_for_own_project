@@ -2,7 +2,7 @@
 Precondition
 Test data
 login - 'm.kotok@pnn.in.ua'
-password - 'Stalker22'
+password - '12345678'
 
 Test
 1) open a page with URL "https://obd-car-doctor.com/en-us/"
@@ -19,7 +19,7 @@ Postcondition: close a browser
 2. Add post
 Precondition: User is logges in with the following credentials:
 login - 'm.kotok@pnn.in.ua'
-password - 'Stalker22'
+password - '12345678'
 page 'https://obd-car-doctor.com/en-us/topic/create/' is available
 test data:
 Title - 'Test title'
@@ -27,8 +27,8 @@ Choose Category - 'Trouble codes'
 Comment -  'test comment'
 
 Test:
-1) open a page with the URL 'https://obd-car-doctor.com/en-us/topic/create/'
-2) enter title to the Title field
+1) click on the 'Add post' button - page with URL 'https://obd-car-doctor.com/en-us/topic/create/' is opened
+2) enter title to the Title field -
 3) choose category in the Choose Category DDL
 4) enter a comment to the Comment field
 5) click on the 'Create discussion button'
@@ -42,7 +42,7 @@ Postcondition: delete added post
 Preconditions:
 User is logged in with the following credentials:
 login - 'm.kotok@pnn.in.ua'
-password - 'Stalker22'
+password - '12345678'
 
 Test:
 1) Go to the 'Edit profile' page
@@ -74,7 +74,7 @@ URL is opened https://obd-car-doctor.com/ru-ru/
 Precondition:
 User is logged in with the following credentials:
 login - 'm.kotok@pnn.in.ua'
-password - 'Stalker22'
+password - '12345678'
 Test data:
 Brand - 'Bee Bee'
 Model - 'XS'
