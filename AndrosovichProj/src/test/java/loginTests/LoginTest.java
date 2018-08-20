@@ -15,4 +15,16 @@ public class LoginTest extends ParentTest {
                 , homePage.isAvatarPresent()
                 , true);
     }
+
+    @Test
+    public void unValidLogIn(){
+        loginPage.openPage();
+        loginPage.enterLogin("Student");
+        loginPage.enterPass("906090");
+        loginPage.clickOnSubmitButton();
+
+        checkAC("Avatar is present"
+                , homePage.isNotAvatarPresent()
+                , true);
+    }
 }

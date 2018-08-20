@@ -24,6 +24,10 @@ public class HomePage extends ParentPage {
         return actionsWithOurElements.isElementDisplay(avatar);
     }
 
+    public boolean isNotAvatarPresent() {
+        return !actionsWithOurElements.isElementDisplay(avatar);
+    }
+
     public void clickOnMenuDictionary() {
         actionsWithOurElements.clickOnElement(menuDictionary);
     }
