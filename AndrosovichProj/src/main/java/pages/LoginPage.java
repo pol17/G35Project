@@ -36,6 +36,10 @@ public class LoginPage extends ParentPage {
         }
     }
 
+    public boolean isButtonSubmitPresent() {
+        return actionsWithOurElements.isElementDisplay(submitButton);
+    }
+
     public void enterLogin(String login){
         actionsWithOurElements.enterTextToElement(userNameInput, login);
     }
