@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,10 +21,6 @@ public class HomePage extends ParentPage {
 
     public boolean isAvatarPresent() {
         return actionsWithOurElements.isElementDisplay(avatar);
-    }
-
-    public boolean isNotAvatarPresent() {
-        return !actionsWithOurElements.isElementDisplay(avatar);
     }
 
     public void clickOnMenuDictionary() {

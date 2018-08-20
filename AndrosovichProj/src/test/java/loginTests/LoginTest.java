@@ -26,7 +26,7 @@ public class LoginTest extends ParentTest {
         loginPage.checkCurrentUrl();
 
         checkAC("Avatar is present"
-                , homePage.isNotAvatarPresent()
+                , !homePage.isAvatarPresent()
                 , true);
         checkAC("Button Submit is not present"
                 , loginPage.isButtonSubmitPresent()
