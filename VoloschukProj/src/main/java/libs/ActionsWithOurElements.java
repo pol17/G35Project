@@ -111,7 +111,7 @@ public class ActionsWithOurElements {
         }
     }
 
-    public void setNeedeStateToCheckBox(WebElement webElement, String neededState){
+    public void setNeededStateToCheckBox(WebElement webElement, String neededState){
         if ("check".equals(neededState) || "uncheck".equals(neededState)){
             if (webElement.isSelected() && "check".equals(neededState)) {
                 logger.info("checkbox is already checked");
