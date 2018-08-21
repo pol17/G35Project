@@ -3,7 +3,7 @@ package loginTests;
 import org.junit.Assert;
 import org.junit.Test;
 import parentTest.ParentTest;
-//clean test -Dtest=LoginTest -Dmaven.test.failure.ignore=true
+//clean test -Dtest=LoginTest -Dmaven.test.failure.ignore=true allure:serve
 //-Dmaven.test.failure.ignore=true   - мавен закрывает глаза на феленые тесты
 
 

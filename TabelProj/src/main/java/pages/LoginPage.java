@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,7 +23,7 @@ public class LoginPage extends ParentPage {
         super(webDriver, "/login");
         homePage = new HomePage(webDriver);
     }
-
+    @Step
     public void openPage() {
         try {
             webDriver.get(baseUrl + "/login");
@@ -34,7 +35,7 @@ public class LoginPage extends ParentPage {
             Assert.fail("Can not open LoginPage");
         }
     }
-
+    @Step
     public void enterLogin(String login) {
         actionWithOurElement.enterTextToElement(userNameImput, login);  // тот же результат что и нижеее!!!!!
 //        try {
@@ -47,7 +48,7 @@ public class LoginPage extends ParentPage {
 //            Assert.fail("Can not work with element login ");
 //        }
     }
-
+    @Step
     public void enterPass(String pass) {
         actionWithOurElement.enterTextToElement(passwordImput, pass);
 //        try {
@@ -61,7 +62,7 @@ public class LoginPage extends ParentPage {
 //            Assert.fail("Can not work with element Pass ");
 //        }
     }
-
+    @Step
     public void clickOnSubmitButton() {
         actionWithOurElement.clickOnElement(submitButton);
 //        try {
@@ -73,7 +74,7 @@ public class LoginPage extends ParentPage {
 //            Assert.fail("Can not work with  button Submit ");
 //        }
     }
-
+    @Step
     public boolean isLoginBoxMsg() {
         try {
             return webDriver.findElement(
@@ -89,6 +90,7 @@ public class LoginPage extends ParentPage {
      * @param login  (ONLY Valid Login)
      * @param passWord   (ONLY Valid Pass)
      */
+    @Step
     public void userValidLogIn(String login, String passWord) {
         openPage();
         enterLogin(login);
