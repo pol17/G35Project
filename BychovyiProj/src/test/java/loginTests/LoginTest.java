@@ -8,7 +8,7 @@ public class LoginTest extends ParentTest {
     public void validLogIn(){
         loginPage.openPage();
         loginPage.enterLogin("Student");
-        loginPage.enterPass("909090");
+        loginPage.enterPass("909090+");
         loginPage.clickOnSubmitButton();
 
         checkAC("Avatar is not present"
