@@ -43,9 +43,9 @@ public class SparesPage extends ParentPage {
 
     }
 
-    public boolean isNewSpareAdded(String nameOfSpear) {
+ //   public boolean isNewSpareAdded(String nameOfSpear) {
 
 
-    }
+//    }
 
 }
