@@ -11,6 +11,7 @@ public class loginTest extends Parenttest {
         loginPage.enterLogin("Student");
         loginPage.enterPass("909090");
         loginPage.clickOnSubmitButton();
+        homePage.checkCurrentUrl();
         checkAC("Avatar is not present",
                 homePage.isAvatarPresent(),
                 true);
@@ -21,6 +22,7 @@ public class loginTest extends Parenttest {
         loginPage.enterLogin("Student");
         loginPage.enterPass("12345");
         loginPage.clickOnSubmitButton();
+        loginPage.checkCurrentUrl();
         Assert.assertEquals("Url is not expected","http://v3.test.itpmgroup.com/login",webDriver.getCurrentUrl());
     }
 }
