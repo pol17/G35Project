@@ -59,6 +59,27 @@ public class ActionsWithOurElements {
         Assert.fail("Cannot work with element " + e);
     }
 
+//    метод для чекбокса
+public void setNeededStateToCheskBox(WebElement webElement, String neededState) {
+    if ("check".equals(neededState) || "uncheck".equals(neededState)) {
+        if (webElement.isSelected() && "check".equals(neededState)) {
+            logger.info("CheckBox is already checked");
+        } else if (webElement.isSelected() && "uncheck".equals(neededState)) {
+            clickOnElement(webElement);
+            logger.info("CheckBox was unchecked");
+        }
+        if (webElement.isSelected() != true && "check".equals(neededState)) {
+            clickOnElement(webElement);
+            logger.info("CheckBox is already checked");
+        } else if (webElement.isSelected() != true && "uncheck".equals(neededState)) {
+            logger.info("CheckBox was unchecked");
+        }
+    } else {
+        logger.error(String.format("%s - is not expected state", neededState));
+        Assert.fail(String.format("%s - is not expected state", neededState));
+    }
+}
+
     public boolean isElementInList(String xPathLocator) {
         try {
             List<WebElement> webElementList = webDriver.findElements(By.xpath(xPathLocator));
