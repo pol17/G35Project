@@ -17,7 +17,7 @@ public class UnValidLogInWithParams extends ParentTest {
         this.pass = pass;
     }
 
-    @Parameterized.Parameters (name = "Parametrs are {0} and {1}")
+    @Parameterized.Parameters (name = "Parameters are {0} and {1}")
     public static Collection testData() {
         return Arrays.asList(new Object[][] {
                 {"Login", "909090"},
