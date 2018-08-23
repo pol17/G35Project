@@ -102,5 +102,21 @@ public class ActionWithOurElements {
 
     }
 
+    public void setNeddedStateToCheckBox (WebElement webElement, String neddedState) {
+        if ("check".equals(neddedState) || "uncheck".equals(neddedState)) {
+            if (webElement.isSelected() && "check".equals(neddedState));
+            logger.info("CheckBox is already checked");
+
+        } else if (webElement.isSelected() && "uncheck".equals(neddedState)){
+            clickOnElement(webElement);
+            logger.info("CheckBox waqs unchecked");
+
+        }
+        else {
+            logger.error(String.format("%s - is not expected state", neddedState));
+            Assert.fail(String.format("%s - is not expected state", neddedState));
+        }
+    }
+
 
 }
