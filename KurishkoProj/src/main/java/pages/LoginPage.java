@@ -39,7 +39,7 @@ public class LoginPage extends ParentPage{
        actionsWithOurElements.enterTextToElement(passwordInput, pass);
     }
     public  void clickOnSubmitButton(){
-        actionsWithOurElements.clickElement(submitButton);
+        actionsWithOurElements.clickOnElement(submitButton);
     }
 
     /**
