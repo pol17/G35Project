@@ -1,10 +1,13 @@
 package loginTests;
 
+import libs.ConfigProperties;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import parentTest.ParentTest;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Collection;
 
