@@ -41,6 +41,25 @@ public class ActionsWithOurElements {
             return false;
         }
     }
+    public void setNeededStateToCheckBox (WebElement webElement, String neededState) {
+        if ("checked".equals(neededState) || "uncheck".equals(neededState)) {
+            if (webElement.isSelected() && "checked".equals(neededState)) {
+                logger.info("CheckBox selected");
+            } else if (webElement.isSelected() && "unchecked".equals(neededState)) {
+                clickOnElement(webElement);
+                logger.info("CheckBox unchecked");
+            }
+            if (webElement.isSelected() != true && "checked".equals(neededState)) {
+                clickOnElement(webElement);
+                logger.info("Checkbox checked");
+            } else if (webElement.isSelected() != true && "unchecked".equals(neededState)) {
+                logger.info("Checkbox unchecked");
+            }
+        } else {
+            logger.error(String.format("&s - is not expected state", neededState));
+            Assert.fail(String.format("&s - is not expected state",neededState));
+        }
+    }
 
     private void printErrorAndStopTest(Exception e) {
         logger.error("Can't work with element" + e);
