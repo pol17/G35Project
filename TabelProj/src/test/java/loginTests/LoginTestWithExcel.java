@@ -1,24 +1,32 @@
 package loginTests;
 
-import org.junit.Assert;
+import libs.ExcelDriver;
 import org.junit.Test;
 import parentTest.ParentTest;
-//clean test -Dtest=LoginTest -Dmaven.test.failure.ignore=true allure:serve
-//-Dmaven.test.failure.ignore=true   - мавен закрывает глаза на феленые тесты
+
+import java.io.IOException;
+import java.util.Map;
 
 
-public class LoginTest extends ParentTest {
+public class LoginTestWithExcel extends ParentTest {
     @Test
-    public void validLogIn() {
+    public void validLogIn() throws IOException {
+        ExcelDriver excelDriver = new ExcelDriver();//вынести в перент тест
+        Map dataForValidLogIn = excelDriver.getData(configProperties.DATA_FILE(),"validLogOn");
+
         loginPage.openPage();
-        loginPage.enterLogin("Student");
-        loginPage.enterPass("909090");
+        loginPage.enterLogin(dataForValidLogIn.get("login").toString());
+        loginPage.enterPass(dataForValidLogIn.get("pass").toString());
         loginPage.clickOnSubmitButton();
 
         checkAC("Avatar is not present"
                 , homePage.isAvatarPresent()
                 , true);
     }
+
+
+
+
 
 //    @Test
 //    public void unValidLogIn() {

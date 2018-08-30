@@ -69,6 +69,22 @@ public class ActionWithOurElement {
         }
     }
 
+    public void setNeededStateToCheckBox(WebElement webElement, String neededState){
+        if("check".equals(neededState) || "unceck".equals(neededState)){
+            if(webElement.isSelected()&& "check".equals(neededState)){
+                logger.info("CheckBox is already checked");
+
+            }else if (webElement.isSelected()&&"unceck".equals(neededState)){
+                clickOnElement(webElement);
+                logger.info("CheckBox was unchecked");
+            }
+        }else{
+            logger.error(String.format("%s - is not expected  state" , neededState));
+            Assert.fail(String.format("%s - is not expected  state" , neededState));
+        }
+    }
+
+
     private void printErrorAndStopTest(Exception e) {
         logger.error("Connot work with element " + e);
         Assert.fail("Connot work with element " + e);
@@ -97,6 +113,7 @@ public class ActionWithOurElement {
             printErrorAndStopTest(e);
         }
     }
+
 
 
 
