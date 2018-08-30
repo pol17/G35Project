@@ -1,0 +1,104 @@
+1. LogIn
+Precondition
+Test data
+login - 'm.kotok@pnn.in.ua'
+password - '12345678'
+
+Test
+1) open a page with URL "https://obd-car-doctor.com/en-us/"
+2) click on the "Log in" button
+3) on the login page 'https://obd-car-doctor.com/en-us/members/logon/' enter login in the login field
+4) enter password in the password field
+5) click on the LogIn button
+
+Expected result: User is logged in, page is opened on the profile User's page with URL = https://obd-car-doctor.com/en-us/members/userprofile/631daa86-7962-42b9-9af0-a7e0010a8c07/
+
+
+Postcondition: close a browser
+
+2. Add post
+Precondition: User is logges in with the following credentials:
+login - 'm.kotok@pnn.in.ua'
+password - '12345678'
+page 'https://obd-car-doctor.com/en-us/topic/create/' is available
+test data:
+Title - 'Test title'
+Choose Category - 'Trouble codes'
+Comment -  'test comment'
+
+Test:
+1) click on the 'Add post' button - page with URL 'https://obd-car-doctor.com/en-us/topic/create/' is opened
+2) enter title to the Title field -
+3) choose category in the Choose Category DDL
+4) enter a comment to the Comment field
+5) click on the 'Create discussion button'
+
+Expected result:
+Comment is added and dysplayed on the page 'https://obd-car-doctor.com/en-us/home/'
+
+Postcondition: delete added post
+
+3. Change settings in myProfilePage
+Preconditions:
+User is logged in with the following credentials:
+login - 'm.kotok@pnn.in.ua'
+password - '12345678'
+
+Test:
+1) Go to the 'Edit profile' page
+2) click on the 'My preferences' item in the menu list
+3) Delete 'Kilometers' from the Distance Unit DDL
+4) Choose 'Miles' from the Distance Unit DDL
+5) Delete 'Liters' from the Volume Unit DDL
+6) Choose 'Gallons US' from the Volume Unit DDL
+7) Click on the 'Save' button
+
+Expected result:
+'Miles' is saved in the Distance Unit DDL
+'Gallons US' is saved in the Volume Unit DDL
+
+
+4. Change language
+Preconditions: https://obd-car-doctor.com/ru-ru/ is available
+
+1) Open the URL 'https://obd-car-doctor.com/ru-ru/'
+2) Click on the 'RU' button
+3) Choose 'EN' in the language DDL
+
+Expected result: localization is changed to EN language
+URL is opened https://obd-car-doctor.com/ru-ru/
+'RU' button is displayed
+"Add post" button is available in russian - 'Написать'
+
+5) Add a car in MyProfile  page
+Precondition:
+User is logged in with the following credentials:
+login - 'm.kotok@pnn.in.ua'
+password - '12345678'
+Test data:
+Brand - 'Bee Bee'
+Model - 'XS'
+Year - '2016'
+Engine - '9.6 kWh (27 Hp) Automatic'
+
+Test:
+1) Open MyProfile page with the URL 'https://obd-car-doctor.com/en-us/members/userprofile/631daa86-7962-42b9-9af0-a7e0010a8c07/'
+2) click on the 'My Cars' menu item
+3) check if a car with the following parameters isn't added:
+Brand - 'Bee Bee'
+Model - 'XS'
+Year - '2016'
+Engine - '9.6 kWh (27 Hp) Automatic'
+4) Click on "Add" button
+5) Choose 'Bee Bee' in the Brand DDL
+6) Choose 'XS' in the Model DDL
+7) Choose '2016' in the Year DDL
+8) Choose '9.6 kWh (27 Hp) Automatic' in the Engine DDL
+9) Click on the 'Save' button
+Expected result: a car is added to the Car list with the following parameters:
+Brand - 'Bee Bee'
+Model - 'XS'
+Year - '2016'
+Engine - '9.6 kWh (27 Hp) Automatic'
+
+Postcondition: delete added car

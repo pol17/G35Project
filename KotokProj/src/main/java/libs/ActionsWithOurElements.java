@@ -1,11 +1,13 @@
 package libs;
 
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import java.util.List;
 
@@ -81,6 +83,7 @@ public class ActionsWithOurElements {
         }
     }
 
+
     public void selectValueInDD(WebElement dropDownElement, String value) {
         try {
             org.openqa.selenium.support.ui.Select select = new org.openqa.selenium.support.ui.Select(dropDownElement);
@@ -89,5 +92,21 @@ public class ActionsWithOurElements {
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
+    }
+
+    public void setNeededStateToCheckBox(WebElement webElement, String neededState) {
+        if ("check".equals(neededState) || "uncheck".equals(neededState)) {
+            if (webElement.isSelected() && "check".equals(neededState)) {
+                logger.info("Checkbox is already checked");
+            } else if (webElement.isSelected() && "uncheck".equals(neededState)) {
+                clickOnElement(webElement);
+                logger.info("Checkbox is unchecked");
+            }
+
+        } else {
+            logger.error(String.format("%s - is not expected state", neededState));
+            Assert.fail(String.format("%s - is not expected state", neededState));
+        }
+
     }
 }

@@ -55,9 +55,15 @@ Worker middle name = KK
 Worker phone = 123 45 67
 Post-condition: delete all added entry!
 
-5) Add new entry to the "Установка" vocabulary
+5)
+Add new entry to the "Установка" vocabulary
+
 Precondition: user is logged in with login = Student and password = 909090
-/*убедиться, что такой записи нет - прекондишн*/
+Check, if the table doesn't have a row with the following parameters:
+nstallation date = 01.05.2018 14:00
+Аппарат = redphone
+Сотрудник = Maryna K KK
+
 Test Data:
 Installation date = 01.05.2018 14:00
 Аппарат = redphone
@@ -72,4 +78,4 @@ page with "Установка" vocabulary is opened and added entry is displayed
 Installation date = 01.05.2018 14:00
 Аппарат = redphone
 Сотрудник = Maryna K KK
-Post-condition: delete all added entry!
+Post-condition: delete all added entry
