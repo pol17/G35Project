@@ -54,6 +54,9 @@
     </pluginManagement>
   </build>
   <modules>
+    <module>jBehaveProject</module>
+    <module>cucumberProj</module>
+
     <module>overAll</module>
     <module>AndrosovichProj</module>
     <module>BychovyiProj</module>
