@@ -1,9 +1,37 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class SparesPage extends  ParentPage {
+    EditSparePage editSparePage;
+    @FindBy(xpath = ".//*[@data-original-title='Add']")
+    private WebElement buttonPlus;
+
+
     public SparesPage(WebDriver webDriver) {
         super(webDriver, "/dictionary/spares");
+        editSparePage = new EditSparePage(webDriver);
+    }
+
+    public void deletingAllSparesWithName(String nameOfSpare) {
+        while (siSpareInList(nameOfSpare)){
+            clickOnSpare(nameOfSpare);
+            editSparePage.clickButtonDelete();
+            logger.info("Spare with name " + nameOfSpare + " was deleted");
+        }
+    }
+
+    private void clickOnSpare(String nameOfSpare) {
+        actionsWithOurElements.clickOnElement(".//*[text()='" + nameOfSpare + "']");
+    }
+
+    private boolean siSpareInList(String nameOfSpare) {
+        return actionsWithOurElements.isElementInList(".//*[text()='" + nameOfSpare + "']");
+    }
+
+    public void clickOnButtonPlus() {
+        actionsWithOurElements.clickOnElement(buttonPlus);
     }
 }

@@ -31,9 +31,9 @@ public class HomePage  extends  ParentPage{
     }
 
     public void clickOnMenuDictionary() {
-        actionsWithOurElements.clickElement(menuDictionary);
+        actionsWithOurElements.clickOnElement(menuDictionary);
     }
     public void clickOnSubMenuSpares(){
-        actionsWithOurElements.clickElement(subMenuSpare);
+        actionsWithOurElements.clickOnElement(subMenuSpare);
     }
 }

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,6 +27,7 @@ public class LoginPage extends ParentPage {
         homePage = new HomePage(webDriver);
     }
 
+    @Step
     public void openPage () {
         try {
             webDriver.get(baseUrl + "/login");
@@ -37,7 +39,7 @@ public class LoginPage extends ParentPage {
 
         }
     }
-
+    @Step
     public boolean isLoginPageDisplayed (){
         try {
             webDriver.get(baseUrl + "/login");
@@ -49,20 +51,20 @@ public class LoginPage extends ParentPage {
         }
 
     }
-
+    @Step
     public void enterLogin (String login) {
        actionsWithOurElements.enterTextToElement(userNameInput, login);
     }
 
-
+    @Step
     public void enterPass (String pass) {
         actionsWithOurElements.enterTextToElement(passwordInput, pass);
     }
-
+    @Step
     public void clickOnSubmitButton (){
        actionsWithOurElements.clickOnElement(sumbitButton);
     }
-
+    @Step
     public boolean isButtonPresent (){
         try {
            return webDriver.findElement(By.tagName("button")).isDisplayed();
@@ -78,7 +80,7 @@ public class LoginPage extends ParentPage {
      * @param login (only valid login)
      * @param passWord (only valid Pass)
      */
-
+    @Step
     public void userValidLogIn(String login, String passWord) {
         openPage();
         enterLogin(login);
